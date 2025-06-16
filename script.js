@@ -1,20 +1,22 @@
-// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Sticky Navbar with Active Link Highlighting
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollY / docHeight) * 100;
 
-    if (window.scrollY > 50) {
+    scrollProgress.style.width = `${scrollPercent}%`;
+
+    if (scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -23,7 +25,7 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 60) {
+        if (scrollY >= sectionTop - 50) {
             current = section.getAttribute('id');
         }
     });
@@ -36,7 +38,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 themeToggle.addEventListener('click', () => {
@@ -47,27 +48,24 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
 
-// Load Theme
 if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark-mode');
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-// Scroll Reveal
-const revealElements = document.querySelectorAll('.section, .project-card, .achievement');
+const revealElements = document.querySelectorAll('.section, .content, .certification, .achievement');
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
     revealElements.forEach(el => {
         const elTop = el.getBoundingClientRect().top;
         if (elTop < windowHeight - 100) {
-            el.classList.add('reveal');
+            el.classList.add('active');
         }
     });
 };
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-// Skills Tab Functionality
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -82,7 +80,6 @@ tabButtons.forEach(button => {
     });
 });
 
-// Modal Functionality
 const modals = document.querySelectorAll('.modal');
 const projectCards = document.querySelectorAll('.project-card');
 const closes = document.querySelectorAll('.close');
@@ -101,19 +98,16 @@ projectCards.forEach(card => {
 
 closes.forEach(close => {
     close.addEventListener('click', () => {
-        modals.forEach(modal => (modal.style.display = 'none'));
+        modals.forEach(modal => modal.style.display = 'none');
     });
 });
 
 window.addEventListener('click', e => {
-    modals.forEach(modal => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+    if (modals.includes(e.target)) {
+        e.target.style.display = 'none';
+    }
 });
 
-// Contact Form Validation
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', e => {
@@ -123,7 +117,7 @@ if (contactForm) {
         const message = document.getElementById('message');
         let valid = true;
 
-        document.querySelectorAll('.error-message').forEach(error => (error.textContent = ''));
+        document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
 
         if (!name.value.trim()) {
             name.nextElementSibling.textContent = 'Name is required';
@@ -145,7 +139,6 @@ if (contactForm) {
     });
 }
 
-// Particle Background
 const canvas = document.getElementById('particle-canvas');
 if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -153,15 +146,15 @@ if (canvas) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 100;
+    const particleCount = 80;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
             this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 0.5 - 0.25;
-            this.speedY = Math.random() * 0.5 - 0.25;
+            this.speedX = Math.random() * 0.3 - 0.15;
+            this.speedY = Math.random() * 0.3 - 0.15;
         }
         update() {
             this.x += this.speedX;
@@ -170,7 +163,7 @@ if (canvas) {
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(165, 180, 252, 0.5)';
+            ctx.fillStyle = 'rgba(255, 182, 193, 0.6)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
