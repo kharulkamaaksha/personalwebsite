@@ -5,6 +5,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const sections = document.querySelectorAll('.section');
@@ -53,7 +59,7 @@ if (localStorage.getItem('theme') === 'dark') {
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-const revealElements = document.querySelectorAll('.section, .content, .certification, .achievement');
+const revealElements = document.querySelectorAll('.section, .project-card, .certification, .achievement');
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
     revealElements.forEach(el => {
@@ -76,7 +82,7 @@ tabButtons.forEach(button => {
 
         button.classList.add('active');
         const tabId = button.getAttribute('data-tab');
-        document.getElementById(tabId).style.display = 'flex';
+        document.getElementById(tabId).style.display = 'grid';
     });
 });
 
@@ -103,9 +109,11 @@ closes.forEach(close => {
 });
 
 window.addEventListener('click', e => {
-    if (modals.includes(e.target)) {
-        e.target.style.display = 'none';
-    }
+    modals.forEach(modal => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
 });
 
 const contactForm = document.getElementById('contact-form');
@@ -146,15 +154,15 @@ if (canvas) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 80;
+    const particleCount = 60;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 0.3 - 0.15;
-            this.speedY = Math.random() * 0.3 - 0.15;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speedX = Math.random() * 0.2 - 0.1;
+            this.speedY = Math.random() * 0.2 - 0.1;
         }
         update() {
             this.x += this.speedX;
@@ -163,7 +171,7 @@ if (canvas) {
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(255, 182, 193, 0.6)';
+            ctx.fillStyle = 'rgba(255, 192, 203, 0.7)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
