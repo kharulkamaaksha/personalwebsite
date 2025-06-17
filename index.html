@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamaaksha Rajendra Kharul - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -31,27 +31,34 @@
     </div>
 
     <div class="scroll-progress"></div>
+    <button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
     <section id="home" class="hero section">
         <canvas id="particle-canvas"></canvas>
         <div class="hero-content">
-            <img src="images/profile-placeholder.jpg" alt="Kamaaksha Kharul" class="profile-img">
+            <img src="images/profile-placeholder.jpg" alt="Kamaaksha Kharul" class="profile-img" loading="lazy">
             <h1 class="hero-title">Kamaaksha Rajendra Kharul</h1>
-            <p class="hero-subtitle">AI & ML Innovator | Full-Stack Developer | Problem Solver</p>
+            <p class="hero-subtitle">AI & ML Innovator | Full-Stack Developer | Creative Problem Solver</p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">Explore Projects</a>
-                <a href="#contact" class="btn btn-secondary">Connect with Me</a>
+                <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
     </section>
+
+    <div class="divider">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,0 C300,100 900,0 1200,100 L1200,100 L0,100 Z" fill="#FFE4E9"></path>
+        </svg>
+    </div>
 
     <section id="about" class="about section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p>I'm Kamaaksha Rajendra Kharul, a third-year B.Tech student in Computer Engineering at Pimpri Chinchwad College of Engineering (PCCOE), Pune, with a CGPA of 8.93. My passion lies in creating innovative solutions using AI, machine learning, and full-stack development.</p>
-                <p>I specialize in Python, C++, JavaScript, TensorFlow, and React, with hands-on experience in projects like a multilingual cotton crop disease prediction system and responsive web applications. As an ACM-W Coordinator and two-time Smart India Hackathon participant, I blend technical expertise with leadership to promote inclusivity in tech.</p>
-                <p>With over 300 problems solved on LeetCode and a 5-star rating in C++ on HackerRank, I'm driven by a commitment to solving complex challenges through technology.</p>
+                <p>Hello! I'm Kamaaksha Rajendra Kharul, a third-year B.Tech student in Computer Engineering at Pimpri Chinchwad College of Engineering (PCCOE), Pune, with a CGPA of 8.93. My passion lies in crafting innovative solutions at the intersection of AI, machine learning, and full-stack development.</p>
+                <p>With expertise in Python, C++, TensorFlow, and React, I’ve built projects like a multilingual cotton crop disease prediction system and dynamic web applications. As an ACM-W Coordinator and two-time Smart India Hackathon participant, I champion inclusivity and collaboration in tech.</p>
+                <p>Having solved over 300 problems on LeetCode and earned a 5-star rating in C++ on HackerRank, I thrive on tackling complex challenges with creativity and precision.</p>
             </div>
         </div>
     </section>
@@ -70,38 +77,44 @@
     <section id="skills" class="skills section">
         <div class="container">
             <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-tabs">
-                <div class="tab-header">
-                    <button class="tab-btn active" data-tab="programming">Programming</button>
-                    <button class="tab-btn" data-tab="ai-ml">AI & ML</button>
-                    <button class="tab-btn" data-tab="web-dev">Web Development</button>
-                    <button class="tab-btn" data-tab="tools">Tools</button>
+            <div class="skills-accordion">
+                <div class="accordion-item active">
+                    <button class="accordion-header">Programming <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <div class="skill-chip"><i class="fas fa-code"></i> Python: Advanced (AI/ML, Data Analysis)</div>
+                        <div class="skill-chip"><i class="fas fa-code"></i> C++: Proficient (Competitive Programming)</div>
+                        <div class="skill-chip"><i class="fas fa-code"></i> Java: Intermediate (App Development)</div>
+                        <div class="skill-chip"><i class="fas fa-code"></i> JavaScript: Intermediate (Web Apps)</div>
+                    </div>
                 </div>
-                <div class="tab-content" id="programming" style="display: grid;">
-                    <div class="skill-item"><i class="fas fa-code"></i><span>Python</span><p>Advanced: AI/ML, data analysis</p></div>
-                    <div class="skill-item"><i class="fas fa-code"></i><span>C++</span><p>Proficient: Competitive programming</p></div>
-                    <div class="skill-item"><i class="fas fa-code"></i><span>Java</span><p>Intermediate: App development</p></div>
-                    <div class="skill-item"><i class="fas fa-code"></i><span>JavaScript</span><p>Intermediate: Web applications</p></div>
+                <div class="accordion-item">
+                    <button class="accordion-header">AI & ML <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <div class="skill-chip"><i class="fas fa-brain"></i> TensorFlow: Advanced (Deep Learning)</div>
+                        <div class="skill-chip"><i class="fas fa-brain"></i> Keras: Advanced (Neural Networks)</div>
+                        <div class="skill-chip"><i class="fas fa-brain"></i> scikit-learn: Proficient (Regression)</div>
+                        <div class="skill-chip"><i class="fas fa-brain"></i> LangChain: Intermediate (LLM Apps)</div>
+                    </div>
                 </div>
-                <div class="tab-content" id="ai-ml">
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>TensorFlow</span><p>Advanced: Deep learning</p></div>
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>Keras</span><p>Advanced: Neural networks</p></div>
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>scikit-learn</span><p>Proficient: Regression models</p></div>
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>LangChain</span><p>Intermediate: LLM applications</p></div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Web Development <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <div class="skill-chip"><i class="fas fa-laptop-code"></i> HTML: Proficient (Markup)</div>
+                        <div class="skill-chip"><i class="fas fa-laptop-code"></i> CSS: Proficient (Styling)</div>
+                        <div class="skill-chip"><i class="fas fa-laptop-code"></i> React: Intermediate (Dynamic UI)</div>
+                        <div class="skill-chip"><i class="fas fa-laptop-code"></i> Node.js: Intermediate (Backend)</div>
+                        <div class="skill-chip"><i class="fas fa-laptop-code"></i> Firebase: Intermediate (Auth)</div>
+                    </div>
                 </div>
-                <div class="tab-content" id="web-dev">
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i><span>HTML</span><p>Proficient: Markup</p></div>
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i><span>CSS</span><p>Proficient: Styling</p></div>
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i><span>React</span><p>Intermediate: Dynamic UI</p></div>
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i><span>Node.js</span><p>Intermediate: Backend</p></div>
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i><span>Firebase</span><p>Intermediate: Authentication</p></div>
-                </div>
-                <div class="tab-content" id="tools">
-                    <div class="skill-item"><i class="fas fa-tools"></i><span>AWS</span><p>Proficient: Cloud deployment</p></div>
-                    <div class="skill-item"><i class="fas fa-tools"></i><span>Git</span><p>Proficient: Version control</p></div>
-                    <div class="skill-item"><i class="fas fa-tools"></i><span>Tkinter</span><p>Intermediate: GUI development</p></div>
-                    <div class="skill-item"><i class="fas fa-tools"></i><span>Matplotlib</span><p>Intermediate: Data visualization</p></div>
-                    <div class="skill-item"><i class="fas fa-tools"></i><span>Vercel</span><p>Intermediate: Deployment</p></div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Tools <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <div class="skill-chip"><i class="fas fa-tools"></i> AWS: Proficient (Cloud Deployment)</div>
+                        <div class="skill-chip"><i class="fas fa-tools"></i> Git: Proficient (Version Control)</div>
+                        <div class="skill-chip"><i class="fas fa-tools"></i> Tkinter: Intermediate (GUI)</div>
+                        <div class="skill-chip"><i class="fas fa-tools"></i> Matplotlib: Intermediate (Visualization)</div>
+                        <div class="skill-chip"><i class="fas fa-tools"></i> Vercel: Intermediate (Deployment)</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,10 +125,13 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card" data-modal="modal-cotton">
-                    <img src="images/cotton.jpeg" alt="Cotton Crop Disease Prediction" class="project-img">
+                    <div class="project-img-wrapper">
+                        <img src="images/cotton.jpeg" alt="Cotton Crop Disease Prediction" class="project-img" loading="lazy">
+                        <div class="img-overlay"></div>
+                    </div>
                     <h3>Cotton Crop Disease Prediction</h3>
                     <p class="stack">Python, TensorFlow, Keras, MobileNetV2, Tkinter</p>
-                    <p>Developed a desktop app with 93% accuracy for detecting cotton crop diseases, supporting English, Hindi, and Marathi.</p>
+                    <p>A desktop app with 93% accuracy for detecting cotton crop diseases, supporting English, Hindi, and Marathi.</p>
                     <div class="tags">
                         <span class="badge">AI</span>
                         <span class="badge">Machine Learning</span>
@@ -127,10 +143,13 @@
                     </div>
                 </div>
                 <div class="project-card" data-modal="modal-fuel">
-                    <img src="images/fuel.jpeg" alt="Fuel Consumption Prediction" class="project-img">
+                    <div class="project-img-wrapper">
+                        <img src="images/fuel.jpeg" alt="Fuel Consumption Prediction" class="project-img" loading="lazy">
+                        <div class="img-overlay"></div>
+                    </div>
                     <h3>Fuel Consumption Prediction</h3>
                     <p class="stack">Python, scikit-learn, Matplotlib</p>
-                    <p>Contributed to a regression-based tool to predict vehicle fuel efficiency with intuitive visualizations.</p>
+                    <p>A regression-based tool for predicting vehicle fuel efficiency with intuitive visualizations.</p>
                     <div class="tags">
                         <span class="badge">Machine Learning</span>
                         <span class="badge">Data Science</span>
@@ -141,10 +160,13 @@
                     </div>
                 </div>
                 <div class="project-card" data-modal="modal-task">
-                    <img src="images/taskmanager.webp" alt="Student Task Manager" class="project-img">
+                    <div class="project-img-wrapper">
+                        <img src="images/taskmanager.webp" alt="Student Task Manager" class="project-img" loading="lazy">
+                        <div class="img-overlay"></div>
+                    </div>
                     <h3>Student Task Manager</h3>
                     <p class="stack">HTML, CSS, JavaScript</p>
-                    <p>Collaborated on a queue-based web app to enhance student productivity with prioritization logic.</p>
+                    <p>A queue-based web app to boost student productivity with prioritization logic.</p>
                     <div class="tags">
                         <span class="badge">Web Development</span>
                         <span class="badge">Productivity</span>
@@ -155,10 +177,13 @@
                     </div>
                 </div>
                 <div class="project-card" data-modal="modal-finance">
-                    <img src="images/finance.webp" alt="Personal Finance Tracker" class="project-img">
+                    <div class="project-img-wrapper">
+                        <img src="images/finance.webp" alt="Personal Finance Tracker" class="project-img" loading="lazy">
+                        <div class="img-overlay"></div>
+                    </div>
                     <h3>Personal Finance Tracker</h3>
                     <p class="stack">HTML, CSS, JavaScript</p>
-                    <p>Contributed to a stack-based expense tracker with interactive UI for budget management.</p>
+                    <p>A stack-based expense tracker with interactive UI for budget management.</p>
                     <div class="tags">
                         <span class="badge">Web Development</span>
                         <span class="badge">Finance</span>
@@ -265,9 +290,9 @@
     <div class="modal" id="modal-cotton">
         <div class="modal-content">
             <span class="close">×</span>
-            <img src="images/cotton.jpeg" alt="Cotton Crop Disease Prediction" class="modal-img">
+            <img src="images/cotton.jpeg" alt="Cotton Crop Disease Prediction" class="modal-img" loading="lazy">
             <h3>Cotton Crop Disease Prediction</h3>
-            <p>Developed a desktop app to detect cotton crop diseases with 93% accuracy, supporting English, Hindi, and Marathi. Fine-tuned MobileNetV2 with data augmentation, batch normalization, L2 regularization, dropout, and learning rate scheduling.</p>
+            <p>Developed a desktop app with 93% accuracy to detect cotton crop diseases, supporting English, Hindi, and Marathi. Fine-tuned MobileNetV2 with advanced techniques like data augmentation and learning rate scheduling.</p>
             <p><strong>Tech Stack:</strong> Python, TensorFlow, Keras, MobileNetV2, Tkinter</p>
             <div class="modal-links">
                 <a href="#" class="btn btn-primary">View Code</a>
@@ -279,9 +304,9 @@
     <div class="modal" id="modal-fuel">
         <div class="modal-content">
             <span class="close">×</span>
-            <img src="images/fuel.jpeg" alt="Fuel Consumption Prediction" class="modal-img">
+            <img src="images/fuel.jpeg" alt="Fuel Consumption Prediction" class="modal-img" loading="lazy">
             <h3>Fuel Consumption Prediction</h3>
-            <p>Contributed to a regression-based tool to predict vehicle fuel efficiency with intuitive data input forms and Matplotlib visualizations.</p>
+            <p>Contributed to a regression-based tool for predicting vehicle fuel efficiency, featuring intuitive data input and Matplotlib visualizations.</p>
             <p><strong>Tech Stack:</strong> Python, scikit-learn, Matplotlib</p>
             <div class="modal-links">
                 <a href="#" class="btn btn-primary">View Code</a>
@@ -293,7 +318,7 @@
     <div class="modal" id="modal-task">
         <div class="modal-content">
             <span class="close">×</span>
-            <img src="images/taskmanager.webp" alt="Student Task Manager" class="modal-img">
+            <img src="images/taskmanager.webp" alt="Student Task Manager" class="modal-img" loading="lazy">
             <h3>Student Task Manager</h3>
             <p>Collaborated on a queue-based web app to enhance student productivity with prioritization logic and a responsive UI.</p>
             <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
@@ -307,9 +332,9 @@
     <div class="modal" id="modal-finance">
         <div class="modal-content">
             <span class="close">×</span>
-            <img src="images/finance.webp" alt="Personal Finance Tracker" class="modal-img">
+            <img src="images/finance.webp" alt="Personal Finance Tracker" class="modal-img" loading="lazy">
             <h3>Personal Finance Tracker</h3>
-            <p>Contributed to a stack-based expense tracker with interactive UI for real-time expense logging and visualization.</p>
+            <p>Contributed to a stack-based expense tracker with interactive UI for real-time budget management.</p>
             <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
             <div class="modal-links">
                 <a href="#" class="btn btn-primary">View Code</a>
