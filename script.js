@@ -1,3 +1,11 @@
+const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+};
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
         e.preventDefault();
@@ -9,29 +17,37 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    hamburger.innerHTML = navLinks.classList.contains('active')
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
 });
 
-window.addEventListener('scroll', () => {
+const handleScroll = debounce(() => {
     const navbar = document.querySelector('.navbar');
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.nav-link');
     const scrollProgress = document.querySelector('.scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
     const scrollY = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollY / docHeight) * 100;
 
     scrollProgress.style.width = `${scrollPercent}%`;
 
-    if (scrollY > 50) {
+    if (scrollY > 100) {
         navbar.classList.add('scrolled');
+        backToTop.style.opacity = '1';
+        backToTop.style.pointerEvents = 'auto';
     } else {
         navbar.classList.remove('scrolled');
+        backToTop.style.opacity = '0';
+        backToTop.style.pointerEvents = 'none';
     }
 
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 50) {
+        if (scrollY >= sectionTop - 60) {
             current = section.getAttribute('id');
         }
     });
@@ -42,6 +58,13 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
+}, 10);
+
+window.addEventListener('scroll', handleScroll);
+
+const backToTop = document.getElementById('back-to-top');
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 const themeToggle = document.getElementById('theme-toggle');
@@ -72,17 +95,24 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(content => content.style.display = 'none');
+        document.querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.accordion-content').style.maxHeight = null;
+            i.querySelector('.fa-chevron-down').classList.remove('rotate');
+        });
 
-        button.classList.add('active');
-        const tabId = button.getAttribute('data-tab');
-        document.getElementById(tabId).style.display = 'grid';
+        if (!isActive) {
+            item.classList.add('active');
+            const content = item.querySelector('.accordion-content');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            header.querySelector('.fa-chevron-down').classList.add('rotate');
+        }
     });
 });
 
@@ -96,22 +126,25 @@ projectCards.forEach(card => {
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.style.display = 'flex';
-        } else {
-            console.error(`Modal with ID ${modalId} not found`);
+            setTimeout(() => modal.classList.add('active'), 10);
         }
     });
 });
 
 closes.forEach(close => {
     close.addEventListener('click', () => {
-        modals.forEach(modal => modal.style.display = 'none');
+        modals.forEach(modal => {
+            modal.classList.remove('active');
+            setTimeout(() => modal.style.display = 'none', 300);
+        });
     });
 });
 
 window.addEventListener('click', e => {
     modals.forEach(modal => {
         if (e.target === modal) {
-            modal.style.display = 'none';
+            modal.classList.remove('active');
+            setTimeout(() => modal.style.display = 'none', 300);
         }
     });
 });
@@ -125,18 +158,24 @@ if (contactForm) {
         const message = document.getElementById('message');
         let valid = true;
 
-        document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
+        document.querySelectorAll('.error-message').forEach(error => {
+            error.textContent = '';
+            error.classList.remove('visible');
+        });
 
         if (!name.value.trim()) {
             name.nextElementSibling.textContent = 'Name is required';
+            name.nextElementSibling.classList.add('visible');
             valid = false;
         }
         if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
             email.nextElementSibling.textContent = 'Valid email is required';
+            email.nextElementSibling.classList.add('visible');
             valid = false;
         }
         if (!message.value.trim()) {
             message.nextElementSibling.textContent = 'Message is required';
+            message.nextElementSibling.classList.add('visible');
             valid = false;
         }
 
@@ -154,15 +193,15 @@ if (canvas) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 50;
+    const particleCount = 40;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 1.2 + 0.5;
-            this.speedX = Math.random() * 0.15 - 0.075;
-            this.speedY = Math.random() * 0.15 - 0.075;
+            this.size = Math.random() * 1 + 0.5;
+            this.speedX = Math.random() * 0.1 - 0.05;
+            this.speedY = Math.random() * 0.1 - 0.05;
         }
         update() {
             this.x += this.speedX;
@@ -171,7 +210,7 @@ if (canvas) {
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(248, 225, 233, 0.8)';
+            ctx.fillStyle = 'rgba(255, 228, 233, 0.9)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
