@@ -141,7 +141,7 @@ if (contactForm) {
         }
 
         if (valid) {
-            alert(`Thank you, ${name.value}! Your message has been sent.\nEmail: ${email.value}\nMessage: ${message.value}`);
+            alert(`Thank you, ${name.value}! Your message has been sent.`);
             contactForm.reset();
         }
     });
@@ -154,15 +154,15 @@ if (canvas) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 60;
+    const particleCount = 50;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 1.5 + 0.5;
-            this.speedX = Math.random() * 0.2 - 0.1;
-            this.speedY = Math.random() * 0.2 - 0.1;
+            this.size = Math.random() * 1.2 + 0.5;
+            this.speedX = Math.random() * 0.15 - 0.075;
+            this.speedY = Math.random() * 0.15 - 0.075;
         }
         update() {
             this.x += this.speedX;
@@ -171,7 +171,7 @@ if (canvas) {
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(255, 192, 203, 0.7)';
+            ctx.fillStyle = 'rgba(248, 225, 233, 0.8)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
