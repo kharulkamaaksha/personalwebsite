@@ -151,6 +151,7 @@ body.dark-mode .theme-toggle {
     font-weight: 700;
     color: #D81B60;
     text-decoration: none;
+    padding-right: 1%;
 }
 
 .navbar.scrolled .logo {
@@ -378,7 +379,7 @@ body.dark-mode .accordion-item.active .accordion-header {
 
 .accordion-content {
     max-height: 0;
-    overflow: hidden;
+    overflow: scroll;
     background: #FFF;
     padding: 0 20px;
     display: grid;
@@ -405,6 +406,7 @@ body.dark-mode .accordion-content {
     font-size: 0.9rem;
     color: #2F1B4A;
     transition: all 0.3s ease;
+    overflow: scroll;
 }
 
 .skill-chip:hover {
@@ -423,6 +425,7 @@ body.dark-mode .skill-chip {
 
 body.dark-mode .skill-chip i {
     color: #FFE4E9;
+    overflow: scroll;
 }
 
 .projects-grid {
