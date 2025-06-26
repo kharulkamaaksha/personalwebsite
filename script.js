@@ -233,10 +233,24 @@ function initCounterAnimation() {
         const updateCounter = () => {
             current += step;
             if (current < target) {
-                counter.textContent = Math.floor(current);
+                // Handle 300+ display
+                if (target === 300) {
+                    counter.textContent = Math.floor(current) + '+';
+                } else if (target === 4) {
+                    counter.textContent = Math.floor(current) + '+';
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.textContent = target;
+                // Final display
+                if (target === 300) {
+                    counter.textContent = '300+';
+                } else if (target === 4) {
+                    counter.textContent = '4+';
+                } else {
+                    counter.textContent = target;
+                }
             }
         };
         
@@ -252,6 +266,7 @@ function initCounterAnimation() {
         
         observer.observe(counter);
     });
+}
 }
 
 // Skills Animation
