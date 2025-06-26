@@ -35,25 +35,33 @@
                     <span class="nav-number">02</span>
                     <span class="nav-text">About</span>
                 </a>
-                <a href="#services" class="nav-link" data-section="services">
+                <a href="#experience" class="nav-link" data-section="experience">
                     <span class="nav-number">03</span>
+                    <span class="nav-text">Experience</span>
+                </a>
+                <a href="#services" class="nav-link" data-section="services">
+                    <span class="nav-number">04</span>
                     <span class="nav-text">Services</span>
                 </a>
                 <a href="#portfolio" class="nav-link" data-section="portfolio">
-                    <span class="nav-number">04</span>
+                    <span class="nav-number">05</span>
                     <span class="nav-text">Portfolio</span>
                 </a>
                 <a href="#testimonials" class="nav-link" data-section="testimonials">
-                    <span class="nav-number">05</span>
+                    <span class="nav-number">06</span>
                     <span class="nav-text">Testimonials</span>
                 </a>
                 <a href="#contact" class="nav-link" data-section="contact">
-                    <span class="nav-number">06</span>
+                    <span class="nav-number">07</span>
                     <span class="nav-text">Contact</span>
                 </a>
             </div>
             
             <div class="nav-actions">
+                <a href="Kamaaksha_Kharul_Resume.pdf" target="_blank" class="resume-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Resume</span>
+                </a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -69,52 +77,109 @@
     <!-- Progress Bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
 
+    <!-- Cursor Effect -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-background">
                 <div class="hero-gradient"></div>
-                <div class="hero-particles" id="hero-particles"></div>
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+                <canvas class="particle-canvas" id="particle-canvas"></canvas>
             </div>
             
             <div class="hero-content">
                 <div class="hero-intro fade-in-up">
-                    <span class="hero-greeting">Hello, I'm</span>
+                    <span class="hero-greeting">
+                        <i class="fas fa-hand-wave"></i>
+                        Hello, I'm
+                    </span>
                     <h1 class="hero-title">
                         <span class="title-line">Kamaaksha</span>
-                        <span class="title-line">Kharul</span>
+                        <span class="title-line highlight">Kharul</span>
                     </h1>
-                    <p class="hero-subtitle">AI Engineer & Full-Stack Developer</p>
+                    <div class="typing-container">
+                        <span class="typing-text">AI Engineer & Full-Stack Developer</span>
+                        <span class="cursor-blink">|</span>
+                    </div>
                     <p class="hero-description">
                         Crafting intelligent solutions at the intersection of artificial intelligence and web development. 
                         Passionate about building the future, one algorithm at a time.
                     </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="300">0</span>
+                            <span class="stat-label">Problems Solved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="93">0</span>
+                            <span class="stat-label">% Model Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="8.93">0</span>
+                            <span class="stat-label">CGPA</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hero-image fade-in-up">
                     <div class="image-container">
-                        <img src="kp2.jpg" alt="Kamaaksha Kharul" class="profile-image">
-                        <div class="image-overlay"></div>
+                        <div class="image-frame">
+                            <img src="kp2.jpg" alt="Kamaaksha Kharul" class="profile-image">
+                            <div class="image-glow"></div>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="tech-icon"><i class="fab fa-python"></i></div>
+                            <div class="tech-icon"><i class="fab fa-react"></i></div>
+                            <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                            <div class="tech-icon"><i class="fab fa-js-square"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-actions fade-in-up">
-                <a href="#portfolio" class="btn btn-primary">
+                <a href="#portfolio" class="btn btn-primary pulse">
                     <span>View My Work</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="#contact" class="btn btn-secondary">
-                    <span>Let's Talk</span>
+                    <span>Let's Connect</span>
                     <i class="fas fa-message"></i>
                 </a>
             </div>
             
+            <div class="social-sidebar">
+                <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/kharulkamaaksha" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://hackerrank.com/your-profile" target="_blank" class="social-link">
+                    <i class="fab fa-hackerrank"></i>
+                </a>
+                <a href="mailto:kharulkamaaksha@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <div class="social-line"></div>
+            </div>
+            
             <div class="hero-scroll">
                 <div class="scroll-indicator">
-                    <span>Scroll</span>
-                    <div class="scroll-line"></div>
+                    <span>Scroll Down</span>
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -125,82 +190,231 @@
                 <div class="section-header">
                     <span class="section-number">02</span>
                     <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Discover my journey and expertise</p>
+                    <p class="section-subtitle">Discover my journey and expertise in AI & Technology</p>
                 </div>
                 
                 <div class="about-content">
-                    <div class="about-text">
-                        <div class="text-block">
-                            <h3>Innovating at the forefront of AI</h3>
-                            <p>
-                                As a third-year Computer Engineering student at PCCOE, Pune, with a stellar 8.93 CGPA, 
-                                I've dedicated myself to mastering the art of artificial intelligence and machine learning. 
-                                My passion lies in creating intelligent systems that solve real-world problems.
-                            </p>
-                        </div>
-                        
-                        <div class="text-block">
-                            <h3>Building tomorrow's solutions today</h3>
-                            <p>
-                                With expertise spanning from TensorFlow and PyTorch to React and Node.js, I bridge 
-                                the gap between cutting-edge AI research and practical web applications. My projects 
-                                have achieved remarkable accuracy rates and real-world impact.
-                            </p>
-                        </div>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">300+</span>
-                                <span class="stat-label">Problems Solved</span>
+                    <div class="about-left">
+                        <div class="about-image-container">
+                            <div class="about-image">
+                                <img src="kp2.jpg" alt="About Kamaaksha">
+                                <div class="image-overlay"></div>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">93%</span>
-                                <span class="stat-label">Model Accuracy</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">8.93</span>
-                                <span class="stat-label">CGPA</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5★</span>
-                                <span class="stat-label">HackerRank</span>
+                            <div class="experience-badge">
+                                <span class="badge-number">3+</span>
+                                <span class="badge-text">Years Experience</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="skills-container">
-                        <div class="skills-category">
-                            <h4>AI & Machine Learning</h4>
-                            <div class="skills-list">
-                                <span class="skill-tag">TensorFlow</span>
-                                <span class="skill-tag">Keras</span>
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">scikit-learn</span>
-                                <span class="skill-tag">Computer Vision</span>
-                                <span class="skill-tag">NLP</span>
+                    <div class="about-right">
+                        <div class="text-content">
+                            <h3 class="about-subtitle">Innovating at the forefront of AI</h3>
+                            <p class="about-description">
+                                As a third-year Computer Engineering student at PCCOE, Pune, with a stellar 8.93 CGPA, 
+                                I've dedicated myself to mastering the art of artificial intelligence and machine learning. 
+                                My passion lies in creating intelligent systems that solve real-world problems and make a meaningful impact.
+                            </p>
+                            
+                            <div class="skills-progress">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Machine Learning & AI</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" data-width="95"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Full-Stack Development</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" data-width="90"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Python & Data Science</span>
+                                        <span>93%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" data-width="93"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>React & JavaScript</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" data-width="88"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-cards">
+                                <div class="achievement-card">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="achievement-content">
+                                        <h4>5★ HackerRank</h4>
+                                        <p>Python & Problem Solving</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="achievement-card">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="achievement-content">
+                                        <h4>SIH Finalist</h4>
+                                        <p>Smart India Hackathon 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <h3>Technologies I Work With</h3>
+                    <div class="tech-grid">
+                        <div class="tech-category">
+                            <h4><i class="fas fa-brain"></i> AI & ML</h4>
+                            <div class="tech-items">
+                                <span class="tech-item">TensorFlow</span>
+                                <span class="tech-item">PyTorch</span>
+                                <span class="tech-item">Keras</span>
+                                <span class="tech-item">scikit-learn</span>
+                                <span class="tech-item">OpenCV</span>
+                                <span class="tech-item">NLTK</span>
                             </div>
                         </div>
                         
-                        <div class="skills-category">
-                            <h4>Programming Languages</h4>
-                            <div class="skills-list">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">C++</span>
-                                <span class="skill-tag">Java</span>
-                                <span class="skill-tag">TypeScript</span>
+                        <div class="tech-category">
+                            <h4><i class="fas fa-code"></i> Programming</h4>
+                            <div class="tech-items">
+                                <span class="tech-item">Python</span>
+                                <span class="tech-item">JavaScript</span>
+                                <span class="tech-item">TypeScript</span>
+                                <span class="tech-item">C++</span>
+                                <span class="tech-item">Java</span>
                             </div>
                         </div>
                         
-                        <div class="skills-category">
-                            <h4>Web Development</h4>
-                            <div class="skills-list">
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">Next.js</span>
-                                <span class="skill-tag">Firebase</span>
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">MongoDB</span>
+                        <div class="tech-category">
+                            <h4><i class="fas fa-globe"></i> Web Development</h4>
+                            <div class="tech-items">
+                                <span class="tech-item">React</span>
+                                <span class="tech-item">Next.js</span>
+                                <span class="tech-item">Node.js</span>
+                                <span class="tech-item">MongoDB</span>
+                                <span class="tech-item">Firebase</span>
+                                <span class="tech-item">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Experience & Education</h2>
+                    <p class="section-subtitle">My journey through learning and professional growth</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Computer Engineering Student</h3>
+                                <span class="timeline-date">2022 - Present</span>
+                            </div>
+                            <p class="timeline-location">Pimpri Chinchwad College of Engineering, Pune</p>
+                            <p class="timeline-description">
+                                Currently pursuing B.Tech in Computer Engineering with a CGPA of 8.93. 
+                                Specializing in AI/ML, Data Structures, and Advanced Programming.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">CGPA: 8.93</span>
+                                <span class="achievement-tag">Top 10% of Class</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Smart India Hackathon Finalist</h3>
+                                <span class="timeline-date">2024</span>
+                            </div>
+                            <p class="timeline-location">National Level Competition</p>
+                            <p class="timeline-description">
+                                Selected as a finalist in SIH 2024 for developing an innovative AI-powered solution 
+                                for cotton crop disease prediction with 93% accuracy.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">93% Accuracy</span>
+                                <span class="achievement-tag">Team Lead</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>ACM-W Chapter Member</h3>
+                                <span class="timeline-date">2023 - Present</span>
+                            </div>
+                            <p class="timeline-location">PCCOE ACM-W Chapter</p>
+                            <p class="timeline-description">
+                                Active member promoting women in technology through workshops, coding competitions, 
+                                and mentorship programs.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Workshop Organizer</span>
+                                <span class="achievement-tag">Mentor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Competitive Programming</h3>
+                                <span class="timeline-date">2022 - Present</span>
+                            </div>
+                            <p class="timeline-location">Various Platforms</p>
+                            <p class="timeline-description">
+                                Achieved 5-star rating on HackerRank in Python and Problem Solving. 
+                                Solved 300+ coding problems across multiple platforms.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">5★ HackerRank</span>
+                                <span class="achievement-tag">300+ Problems</span>
                             </div>
                         </div>
                     </div>
@@ -212,7 +426,7 @@
         <section id="services" class="services">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">03</span>
+                    <span class="section-number">04</span>
                     <h2 class="section-title">Services</h2>
                     <p class="section-subtitle">How I can help transform your ideas into reality</p>
                 </div>
@@ -230,6 +444,9 @@
                             <li>Natural Language Processing</li>
                             <li>Model Optimization</li>
                         </ul>
+                        <div class="service-pricing">
+                            <span class="price">Starting at $500</span>
+                        </div>
                         <div class="service-action">
                             <a href="#contact" class="service-link">
                                 <span>Learn More</span>
@@ -251,6 +468,9 @@
                             <li>Database Design & Optimization</li>
                             <li>Cloud Deployment</li>
                         </ul>
+                        <div class="service-pricing">
+                            <span class="price">Starting at $800</span>
+                        </div>
                         <div class="service-action">
                             <a href="#contact" class="service-link">
                                 <span>Learn More</span>
@@ -271,6 +491,9 @@
                             <li>Performance Optimization</li>
                             <li>Team Mentoring</li>
                         </ul>
+                        <div class="service-pricing">
+                            <span class="price">Starting at $300</span>
+                        </div>
                         <div class="service-action">
                             <a href="#contact" class="service-link">
                                 <span>Learn More</span>
@@ -286,7 +509,7 @@
         <section id="portfolio" class="portfolio">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">04</span>
+                    <span class="section-number">05</span>
                     <h2 class="section-title">Featured Work</h2>
                     <p class="section-subtitle">Showcasing impactful projects and innovative solutions</p>
                 </div>
@@ -303,10 +526,17 @@
                         <div class="portfolio-image">
                             <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" loading="lazy">
                             <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h4>Cotton Disease Prediction</h4>
+                                    <p>AI-powered crop disease detection with 93% accuracy</p>
+                                </div>
                                 <div class="portfolio-actions">
                                     <button class="action-btn" data-modal="cotton-modal">
                                         <i class="fas fa-eye"></i>
                                     </button>
+                                    <a href="https://github.com/kharulkamaaksha/cotton-disease-prediction" class="action-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
                                     <a href="#" class="action-btn" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
@@ -332,10 +562,17 @@
                         <div class="portfolio-image">
                             <img src="fuel.jpeg" alt="Fuel Consumption Prediction" loading="lazy">
                             <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h4>Fuel Efficiency Predictor</h4>
+                                    <p>Regression-based prediction tool with interactive visualizations</p>
+                                </div>
                                 <div class="portfolio-actions">
                                     <button class="action-btn" data-modal="fuel-modal">
                                         <i class="fas fa-eye"></i>
                                     </button>
+                                    <a href="https://github.com/kharulkamaaksha/fuel-efficiency-predictor" class="action-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
                                     <a href="#" class="action-btn" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
@@ -361,10 +598,17 @@
                         <div class="portfolio-image">
                             <img src="taskmanager.webp" alt="Student Task Manager" loading="lazy">
                             <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h4>Smart Task Manager</h4>
+                                    <p>Queue-based productivity application</p>
+                                </div>
                                 <div class="portfolio-actions">
                                     <button class="action-btn" data-modal="task-modal">
                                         <i class="fas fa-eye"></i>
                                     </button>
+                                    <a href="https://github.com/kharulkamaaksha/task-manager" class="action-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
                                     <a href="#" class="action-btn" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
@@ -390,10 +634,17 @@
                         <div class="portfolio-image">
                             <img src="finance.webp" alt="Personal Finance Tracker" loading="lazy">
                             <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h4>Finance Tracker Pro</h4>
+                                    <p>Advanced expense management system</p>
+                                </div>
                                 <div class="portfolio-actions">
                                     <button class="action-btn" data-modal="finance-modal">
                                         <i class="fas fa-eye"></i>
                                     </button>
+                                    <a href="https://github.com/kharulkamaaksha/finance-tracker" class="action-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
                                     <a href="#" class="action-btn" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
@@ -415,6 +666,14 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="portfolio-cta">
+                    <p>Interested in seeing more of my work?</p>
+                    <a href="https://github.com/kharulkamaaksha" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-github"></i>
+                        <span>View All Projects</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -422,7 +681,7 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">05</span>
+                    <span class="section-number">06</span>
                     <h2 class="section-title">What People Say</h2>
                     <p class="section-subtitle">Feedback from collaborators and peers</p>
                 </div>
@@ -433,11 +692,18 @@
                             <div class="quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p>"Kamaaksha's machine learning expertise is exceptional. Her cotton disease prediction model achieved outstanding accuracy and has real potential for agricultural impact."</p>
+                            <p>"Kamaaksha's machine learning expertise is exceptional. Her cotton disease prediction model achieved outstanding accuracy and has real potential for agricultural impact. She combines technical brilliance with practical problem-solving skills."</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <i class="fas fa-user"></i>
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b002?w=150&h=150&fit=crop&crop=face" alt="Dr. Amruta Mahajan">
                             </div>
                             <div class="author-info">
                                 <h4>Dr. Amruta Mahajan</h4>
@@ -451,11 +717,18 @@
                             <div class="quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p>"Working with Kamaaksha on our web development project was amazing. Her technical skills and attention to detail are impressive for a student."</p>
+                            <p>"Working with Kamaaksha on our web development project was amazing. Her technical skills and attention to detail are impressive for a student. She brings fresh perspectives and innovative solutions to every challenge."</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <i class="fas fa-user"></i>
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Priya Sharma">
                             </div>
                             <div class="author-info">
                                 <h4>Priya Sharma</h4>
@@ -469,11 +742,18 @@
                             <div class="quote-icon">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p>"Kamaaksha consistently delivers high-quality solutions. Her leadership in ACM-W and technical contributions make her a valuable team member."</p>
+                            <p>"Kamaaksha consistently delivers high-quality solutions. Her leadership in ACM-W and technical contributions make her a valuable team member. She's destined for great things in the tech industry."</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <i class="fas fa-user"></i>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Prof. Anita Desai">
                             </div>
                             <div class="author-info">
                                 <h4>Prof. Anita Desai</h4>
@@ -484,9 +764,17 @@
                 </div>
                 
                 <div class="testimonial-navigation">
-                    <button class="nav-dot active" data-slide="0"></button>
-                    <button class="nav-dot" data-slide="1"></button>
-                    <button class="nav-dot" data-slide="2"></button>
+                    <button class="nav-arrow nav-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="nav-dots">
+                        <button class="nav-dot active" data-slide="0"></button>
+                        <button class="nav-dot" data-slide="1"></button>
+                        <button class="nav-dot" data-slide="2"></button>
+                    </div>
+                    <button class="nav-arrow nav-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
@@ -495,93 +783,110 @@
         <section id="contact" class="contact">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">06</span>
+                    <span class="section-number">07</span>
                     <h2 class="section-title">Let's Work Together</h2>
                     <p class="section-subtitle">Ready to bring your ideas to life? Let's start the conversation.</p>
                 </div>
                 
                 <div class="contact-content">
                     <div class="contact-info">
-                        <div class="contact-item">
+                        <div class="contact-card">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Email</h4>
                                 <p>kharulkamaaksha@gmail.com</p>
+                                <a href="mailto:kharulkamaaksha@gmail.com" class="contact-link">Send Email</a>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
+                        <div class="contact-card">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
                                 <p>+91-7083191478</p>
+                                <a href="tel:+917083191478" class="contact-link">Call Now</a>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
+                        <div class="contact-card">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Location</h4>
                                 <p>Wakad, Pune, Maharashtra</p>
+                                <a href="#" class="contact-link">View Map</a>
                             </div>
                         </div>
                         
-                        <div class="social-links">
-                            <a href="#" target="_blank" class="social-link">
+                        <div class="contact-card">
+                            <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-hackerrank"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fas fa-code"></i>
-                            </a>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>Connect with me</p>
+                                <a href="https://linkedin.com/in/your-profile" target="_blank" class="contact-link">Connect</a>
+                            </div>
                         </div>
                         
-                        <div class="cta-section">
-                            <h3>Ready to discuss your project?</h3>
-                            <a href="mailto:kharulkamaaksha@gmail.com" class="btn btn-primary">
-                                <span>Schedule a Call</span>
-                                <i class="fas fa-calendar"></i>
-                            </a>
+                        <div class="availability-status">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span>Available for freelance projects</span>
+                            </div>
+                            <p>Currently accepting new projects and collaborations</p>
                         </div>
                     </div>
                     
                     <form class="contact-form" id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                            <span class="form-error"></span>
+                        <div class="form-header">
+                            <h3>Send me a message</h3>
+                            <p>Let's discuss your project and see how I can help</p>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="form-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="form-error"></span>
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                            <span class="form-error"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject">Subject *</label>
                             <input type="text" id="subject" name="subject" required>
                             <span class="form-error"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <label for="budget">Project Budget (Optional)</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-1000">Under $1,000</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="above-10000">Above $10,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, timeline, and requirements..."></textarea>
                             <span class="form-error"></span>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary submit-btn">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -595,29 +900,60 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Kamaaksha Kharul</h3>
-                    <p>Building the future with AI and innovation</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <a href="#about">About</a>
-                        <a href="#services">Services</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#contact">Contact</a>
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <h3>Kamaaksha Kharul</h3>
+                        <p>Building the future with AI and innovation. Let's create something amazing together.</p>
+                        <div class="footer-social">
+                            <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/kharulkamaaksha" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://hackerrank.com/your-profile" target="_blank" class="social-link">
+                                <i class="fab fa-hackerrank"></i>
+                            </a>
+                            <a href="mailto:kharulkamaaksha@gmail.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="footer-column">
-                        <h4>Services</h4>
-                        <a href="#services">AI/ML Solutions</a>
-                        <a href="#services">Web Development</a>
-                        <a href="#services">Tech Consulting</a>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Quick Links</h4>
+                            <a href="#about">About</a>
+                            <a href="#experience">Experience</a>
+                            <a href="#services">Services</a>
+                            <a href="#portfolio">Portfolio</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Services</h4>
+                            <a href="#services">AI/ML Solutions</a>
+                            <a href="#services">Web Development</a>
+                            <a href="#services">Tech Consulting</a>
+                            <a href="#services">Code Review</a>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Resources</h4>
+                            <a href="Kamaaksha_Kharul_Resume.pdf" target="_blank">Download Resume</a>
+                            <a href="#portfolio">View Projects</a>
+                            <a href="#testimonials">Testimonials</a>
+                            <a href="#contact">Get Quote</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Kamaaksha Rajendra Kharul. All rights reserved.</p>
-                <p>Designed & Developed with <i class="fas fa-heart"></i></p>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Kamaaksha Rajendra Kharul. All rights reserved.</p>
+                    <p>Designed & Developed with <i class="fas fa-heart"></i> and lots of ☕</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -627,50 +963,59 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Modals -->
+    <!-- Project Modals -->
     <div class="modal" id="cotton-modal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction">
-            </div>
             <div class="modal-body">
-                <h3>Cotton Crop Disease Prediction System</h3>
-                <div class="modal-meta">
-                    <span class="modal-category">AI/ML Project</span>
-                    <span class="modal-year">2024</span>
+                <div class="modal-image">
+                    <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction">
                 </div>
-                <p>An advanced machine learning system that detects cotton crop diseases with 93% accuracy. The application supports multiple languages (English, Hindi, Marathi) and uses fine-tuned MobileNetV2 architecture for real-time predictions.</p>
-                
-                <h4>Key Features</h4>
-                <ul>
-                    <li>93% disease detection accuracy</li>
-                    <li>Multilingual support (3 languages)</li>
-                    <li>Real-time image processing</li>
-                    <li>User-friendly desktop interface</li>
-                    <li>Comprehensive disease database</li>
-                </ul>
-                
-                <h4>Technical Stack</h4>
-                <div class="tech-stack">
-                    <span>TensorFlow</span>
-                    <span>Keras</span>
-                    <span>MobileNetV2</span>
-                    <span>Python</span>
-                    <span>Tkinter</span>
-                    <span>OpenCV</span>
-                </div>
-                
-                <div class="modal-actions">
-                    <a href="#" class="btn btn-primary">View Live Demo</a>
-                    <a href="#" class="btn btn-secondary">Source Code</a>
+                <div class="modal-info">
+                    <h3>Cotton Crop Disease Prediction System</h3>
+                    <div class="modal-meta">
+                        <span class="modal-category">AI/ML Project</span>
+                        <span class="modal-year">2024</span>
+                    </div>
+                    <p>An advanced machine learning system that detects cotton crop diseases with 93% accuracy. The application supports multiple languages (English, Hindi, Marathi) and uses fine-tuned MobileNetV2 architecture for efficient mobile deployment.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>93% disease detection accuracy</li>
+                        <li>Multilingual support (3 languages)</li>
+                        <li>Real-time image processing</li>
+                        <li>User-friendly desktop interface</li>
+                        <li>Comprehensive disease database</li>
+                        <li>Treatment recommendations</li>
+                    </ul>
+                    
+                    <h4>Technical Stack</h4>
+                    <div class="tech-stack-modal">
+                        <span>TensorFlow</span>
+                        <span>Keras</span>
+                        <span>MobileNetV2</span>
+                        <span>Python</span>
+                        <span>Tkinter</span>
+                        <span>OpenCV</span>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <a href="#" class="btn btn-primary">View Live Demo</a>
+                        <a href="https://github.com/kharulkamaaksha/cotton-disease-prediction" target="_blank" class="btn btn-secondary">Source Code</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Additional modals for other projects... -->
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loader">
+            <div class="loader-text">Kamaaksha</div>
+            <div class="loader-progress"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
