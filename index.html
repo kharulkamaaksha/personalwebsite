@@ -3,63 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamaaksha Kharul - AI Engineer & Full-Stack Developer</title>
-    <meta name="description" content="Portfolio of Kamaaksha Rajendra Kharul - AI/ML Engineer, Full-Stack Developer, and Tech Innovator specializing in cutting-edge solutions.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
+    <title>Kamaaksha Kharul - AI & Full-Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <div class="scroll-progress"></div>
+    <header class="navbar">
         <div class="container">
-            <a href="#home" class="logo">
-                <span>Kamaaksha</span>
-                <span class="logo-dot">.</span>
-            </a>
-            
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            
+            <a href="#home" class="logo">Kamaaksha<span class="logo-dot">.</span></a>
+            <nav class="nav-menu" id="nav-links">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="hamburger"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Header Section -->
-    <header id="home" class="header">
+    <section id="home" class="header section">
+        <canvas id="particle-canvas" class="header-particles"></canvas>
         <div class="container">
             <div class="header-content">
                 <div class="header-text">
                     <span class="subtitle">Hello, I'm</span>
                     <h1 class="title">Kamaaksha Kharul</h1>
-                    <h2 class="role">AI Engineer & Full-Stack Developer</h2>
-                    <p class="description">
-                        Crafting intelligent solutions at the intersection of artificial intelligence and web development. 
-                        Passionate about building the future, one algorithm at a time.
-                    </p>
+                    <h2 class="role text-gradient">AI Engineer & Full-Stack Developer</h2>
+                    <p class="description">Crafting intelligent solutions that blend artificial intelligence with modern web development to solve real-world challenges.</p>
                     <div class="header-actions">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -67,7 +47,7 @@
                 </div>
                 <div class="header-image">
                     <div class="image-wrapper">
-                        <img src="kp2.jpg" alt="Kamaaksha Kharul">
+                        <img src="2nd.jpeg" alt="Kamaaksha Kharul">
                         <div class="shape-1"></div>
                         <div class="shape-2"></div>
                     </div>
@@ -77,48 +57,28 @@
                 <div class="mouse">
                     <div class="wheel"></div>
                 </div>
-                <div class="arrows">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </div>
-        <div class="header-bg">
-            <div class="header-particles" id="particles"></div>
-        </div>
-    </header>
+    </section>
 
-    <!-- About Section -->
     <section id="about" class="about section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">About Me</span>
-                <h2 class="section-title">Discover My Story</h2>
+                <h2 class="section-title">My Journey</h2>
             </div>
-            
             <div class="about-content">
                 <div class="about-image">
-                    <img src="about.jpg" alt="About Kamaaksha">
+                    <img src="2nd.jpeg" alt="About Kamaaksha">
                     <div class="experience">
                         <span class="number">3+</span>
-                        <span class="text">Years of<br>Experience</span>
+                        <span class="text">Years of Experience</span>
                     </div>
                 </div>
-                
                 <div class="about-text">
-                    <h3>AI Engineer & Full-Stack Developer based in Pune, India</h3>
-                    <p>
-                        As a third-year Computer Engineering student at PCCOE, Pune, with a stellar 8.93 CGPA, 
-                        I've dedicated myself to mastering the art of artificial intelligence and machine learning. 
-                        My passion lies in creating intelligent systems that solve real-world problems.
-                    </p>
-                    <p>
-                        With expertise spanning from TensorFlow and PyTorch to React and Node.js, I bridge 
-                        the gap between cutting-edge AI research and practical web applications. My projects 
-                        have achieved remarkable accuracy rates and real-world impact.
-                    </p>
-                    
+                    <h3>AI & Full-Stack Developer from Pune, India</h3>
+                    <p>A third-year Computer Engineering student at PCCOE, Pune, with an 8.93 CGPA, I specialize in artificial intelligence and full-stack development. My passion is building intelligent systems that make a difference.</p>
+                    <p>From machine learning models with TensorFlow and PyTorch to scalable web applications using React and Node.js, I create solutions that combine innovation and practicality.</p>
                     <div class="stats">
                         <div class="stat-item">
                             <h4>300+</h4>
@@ -137,28 +97,24 @@
                             <p>HackerRank</p>
                         </div>
                     </div>
-                    
-                    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Skills Section -->
+
     <section id="skills" class="skills section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">My Skills</span>
                 <h2 class="section-title">My Expertise</h2>
             </div>
-            
             <div class="skills-content">
                 <div class="skills-tabs">
-                    <button class="tab-btn active" data-target="ai-ml">AI & ML</button>
-                    <button class="tab-btn" data-target="programming">Programming</button>
-                    <button class="tab-btn" data-target="web-dev">Web Development</button>
+                    <button class="tab-btn active" data-tab="ai-ml">AI & ML</button>
+                    <button class="tab-btn" data-tab="programming">Programming</button>
+                    <button class="tab-btn" data-tab="web-dev">Web Development</button>
                 </div>
-                
                 <div class="skills-panels">
                     <div class="skills-panel active" id="ai-ml">
                         <div class="skills-list">
@@ -167,53 +123,38 @@
                                     <h4>TensorFlow</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 90%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>PyTorch</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>Computer Vision</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 85%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>NLP</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 65%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>scikit-learn</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 88%"></div></div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="skills-panel" id="programming">
                         <div class="skills-list">
                             <div class="skill-item">
@@ -221,53 +162,38 @@
                                     <h4>Python</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 95%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 95%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>JavaScript</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>Java</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 70%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 65%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>C++</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 90%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>TypeScript</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="skills-panel" id="web-dev">
                         <div class="skills-list">
                             <div class="skill-item">
@@ -275,49 +201,35 @@
                                     <h4>React</h4>
                                     <span>Advanced</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 85%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>Node.js</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>Next.js</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 65%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>MongoDB</h4>
                                     <span>Intermediate</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 70%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
                             </div>
-                            
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <h4>AWS</h4>
                                     <span>Beginner</span>
                                 </div>
-                                <div class="skill-progress">
-                                    <div class="skill-bar" style="width: 60%"></div>
-                                </div>
+                                <div class="skill-progress"><div class="skill-bar" style="width: 50%"></div></div>
                             </div>
                         </div>
                     </div>
@@ -325,87 +237,73 @@
             </div>
         </div>
     </section>
-    
-    <!-- Services Section -->
+
     <section id="services" class="services section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">What I Offer</span>
                 <h2 class="section-title">My Services</h2>
             </div>
-            
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
                     <h3>AI/ML Solutions</h3>
-                    <p>Custom machine learning models, computer vision systems, and intelligent automation solutions tailored to your business needs.</p>
+                    <p>Custom machine learning models and intelligent automation tailored to your needs.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Predictive Analytics</li>
-                        <li><i class="fas fa-check"></i> Computer Vision</li>
-                        <li><i class="fas fa-check"></i> Natural Language Processing</li>
-                        <li><i class="fas fa-check"></i> Model Optimization</li>
+                        <li><i class="fas fa-check"></i>Predictive Analytics</li>
+                        <li><i class="fas fa-check"></i>Computer Vision</li>
+                        <li><i class="fas fa-check"></i>NLP</li>
+                        <li><i class="fas fa-check"></i>Model Optimization</li>
                     </ul>
                     <a href="#contact" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <div class="service-card featured">
-                    <div class="badge">Popular</div>
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <span class="badge">Popular</span>
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
                     <h3>Full-Stack Development</h3>
-                    <p>End-to-end web application development using modern frameworks and technologies for scalable, performant solutions.</p>
+                    <p>End-to-end web applications using modern frameworks for scalable solutions.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> React/Next.js Applications</li>
-                        <li><i class="fas fa-check"></i> Node.js Backend Development</li>
-                        <li><i class="fas fa-check"></i> Database Design & Optimization</li>
-                        <li><i class="fas fa-check"></i> Cloud Deployment</li>
+                        <li><i class="fas fa-check"></i>React/Next.js Apps</li>
+                        <li><i class="fas fa-check"></i>Node.js Backend</li>
+                        <li><i class="fas fa-check"></i>Database Design</li>
+                        <li><i class="fas fa-check"></i>Cloud Deployment</li>
                     </ul>
                     <a href="#contact" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Tech Consulting</h3>
-                    <p>Strategic guidance on technology adoption, system architecture, and digital transformation initiatives.</p>
+                    <p>Strategic guidance on technology adoption and system architecture.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Technology Assessment</li>
-                        <li><i class="fas fa-check"></i> Architecture Planning</li>
-                        <li><i class="fas fa-check"></i> Performance Optimization</li>
-                        <li><i class="fas fa-check"></i> Team Mentoring</li>
+                        <li><i class="fas fa-check"></i>Technology Assessment</li>
+                        <li><i class="fas fa-check"></i>Architecture Planning</li>
+                        <li><i class="fas fa-check"></i>Performance Optimization</li>
+                        <li><i class="fas fa-check"></i>Team Mentoring</li>
                     </ul>
                     <a href="#contact" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Projects Section -->
+
     <section id="projects" class="projects section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">My Work</span>
                 <h2 class="section-title">Featured Projects</h2>
             </div>
-            
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="web-dev">Web Development</button>
                 <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
             </div>
-            
             <div class="projects-grid">
                 <div class="project-card" data-category="ai-ml">
                     <div class="project-img">
-                        <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction">
+                        <img src="project1.jpg" alt="Cotton Crop Disease Prediction">
                         <div class="project-overlay">
                             <a href="#" class="project-btn"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-btn"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -414,7 +312,7 @@
                             <span>Computer Vision</span>
                         </div>
                         <h3>Cotton Crop Disease Prediction</h3>
-                        <p>Advanced ML model achieving 93% accuracy in disease detection with multilingual support.</p>
+                        <p>ML model with 93% accuracy in disease detection, supporting multiple languages.</p>
                         <div class="project-tech">
                             <span>TensorFlow</span>
                             <span>MobileNetV2</span>
@@ -422,13 +320,11 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="project-card" data-category="ai-ml">
                     <div class="project-img">
-                        <img src="fuel.jpeg" alt="Fuel Consumption Prediction">
+                        <img src="project2.jpg" alt="Fuel Efficiency Predictor">
                         <div class="project-overlay">
                             <a href="#" class="project-btn"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-btn"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -437,7 +333,7 @@
                             <span>Regression</span>
                         </div>
                         <h3>Fuel Efficiency Predictor</h3>
-                        <p>Regression-based tool with intuitive visualizations for vehicle fuel efficiency prediction.</p>
+                        <p>Regression tool with visualizations for vehicle fuel efficiency prediction.</p>
                         <div class="project-tech">
                             <span>scikit-learn</span>
                             <span>Matplotlib</span>
@@ -445,13 +341,11 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="web-dev">
                     <div class="project-img">
-                        <img src="taskmanager.webp" alt="Smart Task Manager">
+                        <img src="project3.jpg" alt="Smart Task Manager">
                         <div class="project-overlay">
                             <a href="#" class="project-btn"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-btn"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -460,7 +354,7 @@
                             <span>Frontend</span>
                         </div>
                         <h3>Smart Task Manager</h3>
-                        <p>Queue-based productivity application with intelligent prioritization algorithms.</p>
+                        <p>Productivity app with intelligent task prioritization algorithms.</p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>JavaScript</span>
@@ -468,13 +362,11 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="web-dev">
                     <div class="project-img">
-                        <img src="finance.webp" alt="Finance Tracker Pro">
+                        <img src="project4.jpg" alt="Finance Tracker Pro">
                         <div class="project-overlay">
                             <a href="#" class="project-btn"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-btn"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -483,7 +375,7 @@
                             <span>Web App</span>
                         </div>
                         <h3>Finance Tracker Pro</h3>
-                        <p>Stack-based expense management system with real-time budget analytics.</p>
+                        <p>Expense management system with real-time budget analytics.</p>
                         <div class="project-tech">
                             <span>JavaScript</span>
                             <span>Chart.js</span>
@@ -492,63 +384,46 @@
                     </div>
                 </div>
             </div>
-            
             <div class="projects-cta">
-                <a href="#contact" class="btn btn-outline">See More Projects</a>
+                <a href="#" class="btn btn-primary">See More Projects</a>
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section -->
+
     <section id="testimonials" class="testimonials section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Client Feedback</span>
                 <h2 class="section-title">What People Say</h2>
             </div>
-            
             <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Working with Kamaaksha on our web development project was amazing. Her technical skills and attention to detail are impressive for a student."
-                    </p>
+                <div class="testimonial-card active">
+                    <span class="quote"><i class="fas fa-quote-left"></i></span>
+                    <p class="testimonial-text">"Kamaaksha's technical skills and attention to detail made our web development project a success."</p>
                     <div class="testimonial-author">
-                        <img src="person1.jpg" alt="Priya Sharma">
+                        <img src="author1.jpg" alt="Priya Sharma">
                         <div class="author-info">
                             <h4>Priya Sharma</h4>
                             <p>Project Teammate, SIH 2024</p>
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Kamaaksha consistently delivers high-quality solutions. Her leadership in ACM-W and technical contributions make her a valuable team member."
-                    </p>
+                    <span class="quote"><i class="fas fa-quote-left"></i></span>
+                    <p class="testimonial-text">"Her leadership in ACM-W and technical contributions are exceptional."</p>
                     <div class="testimonial-author">
-                        <img src="person2.jpg" alt="Prof. Anita Desai">
+                        <img src="author2.jpg" alt="Prof. Anita Desai">
                         <div class="author-info">
                             <h4>Prof. Anita Desai</h4>
                             <p>ACM-W Faculty Advisor</p>
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "The AI solution developed by Kamaaksha exceeded our expectations. Her ability to translate complex requirements into functional technology is remarkable."
-                    </p>
+                    <span class="quote"><i class="fas fa-quote-left"></i></span>
+                    <p class="testimonial-text">"Kamaaksha's AI solution exceeded our expectations with its accuracy and functionality."</p>
                     <div class="testimonial-author">
-                        <img src="person3.jpg" alt="Rahul Mehta">
+                        <img src="author3.jpg" alt="Rahul Mehta">
                         <div class="author-info">
                             <h4>Rahul Mehta</h4>
                             <p>Project Lead, TechInnovate</p>
@@ -556,145 +431,100 @@
                     </div>
                 </div>
             </div>
-            
             <div class="slider-controls">
                 <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-dots">
-                    <button class="dot active"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
-                </div>
                 <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
-    
-    <!-- Contact Section -->
+
     <section id="contact" class="contact section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Get In Touch</span>
                 <h2 class="section-title">Contact Me</h2>
             </div>
-            
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h3>Location</h3>
+                            <h4>Location</h4>
                             <p>Wakad, Pune, Maharashtra</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h3>Email</h3>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="462d2e2734332a2d272b27272d352e2706212b272f2a6825292b">[email&#160;protected]</a></p>
+                            <h4>Email</h4>
+                            <p>kamaaksha.kharul@gmail.com</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
                         <div>
-                            <h3>Phone</h3>
+                            <h4>Phone</h4>
                             <p>+91-7083191478</p>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-hackerrank"></i></a>
-                        <a href="#" class="social-link"><i class="fas fa-code"></i></a>
-                    </div>
                 </div>
-                
-                <form class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
+                <form id="contact-form" class="contact-form">
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <span class="error-message"></span>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <span class="error-message"></span>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary">
-                        Send Message <i class="fas fa-paper-plane"></i>
-                    </button>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
+
+    <footer class="footer section">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#home">
-                        <span>Kamaaksha</span>
-                        <span class="logo-dot">.</span>
-                    </a>
-                    <p>Building the future with AI and innovation</p>
+                <div class="footer-brand">
+                    <a href="#home" class="logo">Kamaaksha<span class="logo-dot">.</span></a>
+                    <p>Building the future with AI and innovation.</p>
                 </div>
-                
                 <div class="footer-links">
-                    <div class="footer-group">
-                        <h3>Navigation</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#skills">Skills</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-group">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#services">AI/ML Solutions</a></li>
-                            <li><a href="#services">Web Development</a></li>
-                            <li><a href="#services">Tech Consulting</a></li>
-                        </ul>
-                    </div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">AI/ML Solutions</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Tech Consulting</a></li>
+                    </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 Kamaaksha Rajendra Kharul. All rights reserved.</p>
-                <p>Designed & Developed with <i class="fas fa-heart"></i></p>
+                <p>&copy; 2025 Kamaaksha Kharul. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i></p>
             </div>
         </div>
     </footer>
-    
-    <!-- Back to Top -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <a href="#home" id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <script src="script.js"></script>
 </body>
 </html>
