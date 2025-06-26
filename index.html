@@ -12,10 +12,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -44,6 +47,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -84,11 +91,11 @@
             </div>
             
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="menuToggle">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -105,12 +112,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="hero-bg">
-            <!-- Removed floating shapes -->
+            <div class="gradient-bg"></div>
         </div>
         
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
+                <div class="hero-text" data-aos="fade-right" data-aos-duration="800">
                     <div class="greeting">
                         <span class="wave">👋</span>
                         <span class="greeting-text">Hello, I'm</span>
@@ -135,21 +142,21 @@
                     </p>
                     
                     <div class="hero-stats">
-                        <div class="stat-item">
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
                             <div class="stat-number" data-target="300">0</div>
                             <div class="stat-label">Problems Solved</div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
                             <div class="stat-number" data-target="4">0</div>
                             <div class="stat-label">Projects Made</div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
                             <div class="stat-number" data-target="5">0</div>
                             <div class="stat-label">⭐ C++ & Python</div>
                         </div>
                     </div>
                     
-                    <div class="hero-actions">
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
                         <button class="btn btn-primary" onclick="scrollToSection('projects')">
                             <span>View My Work</span>
                             <i class="fas fa-arrow-right"></i>
@@ -160,7 +167,7 @@
                         </a>
                     </div>
                     
-                    <div class="social-links">
+                    <div class="social-links" data-aos="fade-up" data-aos-delay="500">
                         <a href="https://github.com/kharulkamaaksha" class="social-link" target="_blank">
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
@@ -176,33 +183,25 @@
                     </div>
                 </div>
                 
-                <div class="hero-visual">
+                <div class="hero-visual" data-aos="fade-left" data-aos-duration="800">
                     <div class="profile-container">
-                        <div class="profile-card">
-                            <div class="card-glow"></div>
-                            <img src="./kp2.JPEG" alt="Kamaaksha Kharul" class="profile-img"
-                                 onerror="this.style.display='none'; document.querySelector('.profile-placeholder').style.display='flex';">
-                            <div class="profile-placeholder" style="display: none;">
-                                <i class="fas fa-user"></i>
-                                <span>Kamaaksha Kharul</span>
+                        <div class="frosted-circle">
+                            <img src="./kp2.JPEG" alt="Kamaaksha Kharul" class="profile-img">
+                        </div>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value">Available for Internships</span>
                             </div>
-                            <div class="card-info">
-                                <div class="info-item">
-                                    <span class="info-label">Status</span>
-                                    <span class="info-value">Available for Internships</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Year</span>
-                                    <span class="info-value">3rd Year Student</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Location</span>
-                                    <span class="info-value">Pune, Maharashtra</span>
-                                </div>
+                            <div class="info-item">
+                                <span class="info-label">Year</span>
+                                <span class="info-value">3rd Year Student</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Pune, Maharashtra</span>
                             </div>
                         </div>
-                        
-                        <!-- Removed floating elements -->
                     </div>
                 </div>
             </div>
@@ -219,20 +218,15 @@
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">About Me</span>
                 <h2 class="section-title">My Story</h2>
             </div>
             
             <div class="about-content">
-                <div class="about-visual">
+                <div class="about-visual" data-aos="fade-right" data-aos-duration="800">
                     <div class="about-image-container">
-                        <img src="./about.JPEG" alt="About Kamaaksha" class="about-img"
-                             onerror="this.style.display='none'; document.querySelector('.about-placeholder').style.display='flex';">
-                        <div class="about-placeholder" style="display: none;">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Computer Engineering Student</span>
-                        </div>
+                        <img src="./about.JPEG" alt="About Kamaaksha" class="about-img">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="overlay-title">PCCOE, Pune</span>
@@ -242,14 +236,14 @@
                     </div>
                     
                     <div class="achievements-float">
-                        <div class="achievement-item">
+                        <div class="achievement-item" data-aos="fade-up" data-aos-delay="100">
                             <div class="achievement-icon">🚀</div>
                             <div class="achievement-text">
                                 <span class="achievement-number">300+</span>
                                 <span class="achievement-label">Problems</span>
                             </div>
                         </div>
-                        <div class="achievement-item">
+                        <div class="achievement-item" data-aos="fade-up" data-aos-delay="200">
                             <div class="achievement-icon">💼</div>
                             <div class="achievement-text">
                                 <span class="achievement-number">4+</span>
@@ -259,7 +253,7 @@
                     </div>
                 </div>
                 
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-left" data-aos-duration="800">
                     <div class="text-content">
                         <h3>Passionate Computer Engineering Student</h3>
                         <p>
@@ -275,25 +269,25 @@
                     </div>
                     
                     <div class="skills-preview">
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
                             <span class="skill-name">C++</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="85"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="150">
                             <span class="skill-name">Python</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="80"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
                             <span class="skill-name">Machine Learning</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="75"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="250">
                             <span class="skill-name">Web Development</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="85"></div>
@@ -301,7 +295,7 @@
                         </div>
                     </div>
                     
-                    <div class="about-details">
+                    <div class="about-details" data-aos="fade-up" data-aos-delay="300">
                         <div class="detail-grid">
                             <div class="detail-item">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -329,13 +323,13 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">Skills & Technologies</span>
                 <h2 class="section-title">What I Work With</h2>
             </div>
             
             <div class="skills-container">
-                <div class="skills-categories">
+                <div class="skills-categories" data-aos="fade-up">
                     <button class="category-btn active" data-category="programming">
                         <i class="fas fa-code"></i>
                         <span>Programming</span>
@@ -356,7 +350,7 @@
                 
                 <div class="skills-grid" id="skillsGrid">
                     <!-- Programming Skills -->
-                    <div class="skill-card" data-category="programming">
+                    <div class="skill-card" data-category="programming" data-aos="fade-up" data-aos-delay="100">
                         <div class="skill-icon">
                             <i class="fab fa-java"></i>
                         </div>
@@ -367,7 +361,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="programming">
+                    <div class="skill-card" data-category="programming" data-aos="fade-up" data-aos-delay="150">
                         <div class="skill-icon">
                             <i class="fab fa-python"></i>
                         </div>
@@ -378,7 +372,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="programming">
+                    <div class="skill-card" data-category="programming" data-aos="fade-up" data-aos-delay="200">
                         <div class="skill-icon">
                             <i class="fab fa-js-square"></i>
                         </div>
@@ -389,7 +383,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="programming">
+                    <div class="skill-card" data-category="programming" data-aos="fade-up" data-aos-delay="250">
                         <div class="skill-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -401,7 +395,7 @@
                     </div>
                     
                     <!-- Web Technologies -->
-                    <div class="skill-card" data-category="web" style="display: none;">
+                    <div class="skill-card" data-category="web" style="display: none;" data-aos="fade-up" data-aos-delay="100">
                         <div class="skill-icon">
                             <i class="fab fa-html5"></i>
                         </div>
@@ -412,7 +406,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="web" style="display: none;">
+                    <div class="skill-card" data-category="web" style="display: none;" data-aos="fade-up" data-aos-delay="150">
                         <div class="skill-icon">
                             <i class="fab fa-css3-alt"></i>
                         </div>
@@ -423,7 +417,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="web" style="display: none;">
+                    <div class="skill-card" data-category="web" style="display: none;" data-aos="fade-up" data-aos-delay="200">
                         <div class="skill-icon">
                             <i class="fab fa-react"></i>
                         </div>
@@ -434,7 +428,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="web" style="display: none;">
+                    <div class="skill-card" data-category="web" style="display: none;" data-aos="fade-up" data-aos-delay="250">
                         <div class="skill-icon">
                             <i class="fab fa-node-js"></i>
                         </div>
@@ -446,7 +440,7 @@
                     </div>
                     
                     <!-- Tools & Frameworks -->
-                    <div class="skill-card" data-category="tools" style="display: none;">
+                    <div class="skill-card" data-category="tools" style="display: none;" data-aos="fade-up" data-aos-delay="100">
                         <div class="skill-icon">
                             <i class="fab fa-git-alt"></i>
                         </div>
@@ -457,7 +451,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="tools" style="display: none;">
+                    <div class="skill-card" data-category="tools" style="display: none;" data-aos="fade-up" data-aos-delay="150">
                         <div class="skill-icon">
                             <i class="fas fa-database"></i>
                         </div>
@@ -468,7 +462,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="tools" style="display: none;">
+                    <div class="skill-card" data-category="tools" style="display: none;" data-aos="fade-up" data-aos-delay="200">
                         <div class="skill-icon">
                             <i class="fab fa-android"></i>
                         </div>
@@ -480,7 +474,7 @@
                     </div>
                     
                     <!-- Machine Learning -->
-                    <div class="skill-card" data-category="ml" style="display: none;">
+                    <div class="skill-card" data-category="ml" style="display: none;" data-aos="fade-up" data-aos-delay="100">
                         <div class="skill-icon">
                             <i class="fas fa-brain"></i>
                         </div>
@@ -491,7 +485,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="ml" style="display: none;">
+                    <div class="skill-card" data-category="ml" style="display: none;" data-aos="fade-up" data-aos-delay="150">
                         <div class="skill-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -502,7 +496,7 @@
                         </div>
                     </div>
                     
-                    <div class="skill-card" data-category="ml" style="display: none;">
+                    <div class="skill-card" data-category="ml" style="display: none;" data-aos="fade-up" data-aos-delay="200">
                         <div class="skill-icon">
                             <i class="fas fa-eye"></i>
                         </div>
@@ -520,12 +514,12 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">My Work</span>
                 <h2 class="section-title">Featured Projects</h2>
             </div>
             
-            <div class="projects-filter">
+            <div class="projects-filter" data-aos="fade-up">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="ml">Machine Learning</button>
                 <button class="filter-btn" data-filter="web">Web Development</button>
@@ -533,14 +527,9 @@
             
             <div class="projects-grid">
                 <!-- Cotton Disease Prediction -->
-                <div class="project-card" data-category="ml">
+                <div class="project-card" data-category="ml" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="./cotton.jpeg" alt="Cotton Disease Prediction" 
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;">
-                            <i class="fas fa-leaf"></i>
-                            <span>Cotton Disease Prediction</span>
-                        </div>
+                        <img src="./cotton.jpeg" alt="Cotton Disease Prediction">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link">
@@ -575,14 +564,9 @@
                 </div>
                 
                 <!-- Fuel Consumption Prediction -->
-                <div class="project-card" data-category="ml">
+                <div class="project-card" data-category="ml" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="./fuel.jpeg" alt="Fuel Consumption Prediction"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;">
-                            <i class="fas fa-car"></i>
-                            <span>Fuel Prediction System</span>
-                        </div>
+                        <img src="./fuel.jpeg" alt="Fuel Consumption Prediction">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link">
@@ -611,14 +595,9 @@
                 </div>
                 
                 <!-- Task Management System -->
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
-                        <img src="./taskmanager.webp" alt="Task Management System"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;">
-                            <i class="fas fa-tasks"></i>
-                            <span>Task Manager</span>
-                        </div>
+                        <img src="./taskmanager.webp" alt="Task Management System">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link">
@@ -647,14 +626,9 @@
                 </div>
                 
                 <!-- Finance Tracker -->
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image">
-                        <img src="./finance.webp" alt="Finance Tracker"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;">
-                            <i class="fas fa-chart-pie"></i>
-                            <span>Finance Tracker</span>
-                        </div>
+                        <img src="./finance.webp" alt="Finance Tracker">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link">
@@ -688,7 +662,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">Get In Touch</span>
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="section-description">
@@ -697,8 +671,8 @@
             </div>
             
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card">
+                <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -707,7 +681,7 @@
                         <a href="mailto:kharulkamaaksha@gmail.com" class="contact-link">Send Email</a>
                     </div>
                     
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -716,7 +690,7 @@
                         <a href="tel:+917083191478" class="contact-link">Call Now</a>
                     </div>
                     
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -726,25 +700,25 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" data-aos="fade-left" data-aos-duration="800" action="https://formspree.io/f/xzbopbzw" method="POST">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <label>Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
                     </div>
                     
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <label>Your Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        <label for="email">Your Email</label>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                        <label>Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
                     </div>
                     
                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                        <label>Your Message</label>
+                        <textarea name="message" id="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">
@@ -762,15 +736,16 @@
             <div class="footer-content">
                 <div class="footer-text">
                     <p>&copy; 2025 Kamaaksha Kharul. Made with ❤️ and lots of ☕</p>
+                    <p class="last-updated">Last updated: <span id="lastUpdated">June 26, 2025</span></p>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://github.com/kharulkamaaksha" target="_blank">
+                    <a href="https://github.com/kharulkamaaksha" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/kamaaksha-kharul" target="_blank">
+                    <a href="https://linkedin.com/in/kamaaksha-kharul" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://hackerrank.com/kamaaksha" target="_blank">
+                    <a href="https://hackerrank.com/kamaaksha" target="_blank" aria-label="HackerRank">
                         <i class="fab fa-hackerrank"></i>
                     </a>
                 </div>
@@ -778,20 +753,13 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    
-    <!-- Emergency fix for preloader -->
-    <script>
-        // Force remove preloader after 2 seconds
-        setTimeout(function() {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.style.display = 'none';
-            }
-            document.body.style.overflow = 'auto';
-            document.body.style.visibility = 'visible';
-        }, 2000);
-    </script>
 </body>
 </html>
