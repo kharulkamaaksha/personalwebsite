@@ -7,317 +7,347 @@
     <meta name="description" content="Portfolio of Kamaaksha Rajendra Kharul - 3rd Year Computer Engineering Student at PCCOE, Pune">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-image-fix.css">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/kp2.JPEG" as="image">
-    <link rel="preload" href="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/about.JPEG" as="image">
+    <link rel="preload" href="./kp2.JPEG" as="image">
+    <link rel="preload" href="./about.JPEG" as="image">
 </head>
 <body>
-    <!-- Unique floating elements -->
-    <div class="floating-elements">
-        <div class="float-element float-1">
-            <i class="fas fa-code"></i>
-        </div>
-        <div class="float-element float-2">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <div class="float-element float-3">
-            <i class="fas fa-brain"></i>
-        </div>
-        <div class="float-element float-4">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="float-element float-5">
-            <i class="fas fa-database"></i>
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="loading-text">
+                <span>K</span>
+                <span>A</span>
+                <span>M</span>
+                <span>A</span>
+                <span>A</span>
+                <span>K</span>
+                <span>S</span>
+                <span>H</span>
+                <span>A</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
         </div>
     </div>
 
+    <!-- Background Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#home" class="logo">
-                <span class="logo-text">Kamaaksha</span>
-                <span class="logo-dot">.</span>
-                <span class="logo-code">&lt;/&gt;</span>
-            </a>
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="logo-text">K<span class="highlight">.</span></span>
+                    <div class="logo-animation"></div>
+                </div>
+            </div>
             
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active" data-text="Home">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                    <div class="nav-indicator"></div>
                 </a>
-                <a href="#about" class="nav-link" data-text="About">
-                    <i class="fas fa-user"></i>
-                    <span>About</span>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-icon">👨‍💻</span>
+                    <span class="nav-text">About</span>
+                    <div class="nav-indicator"></div>
                 </a>
-                <a href="#skills" class="nav-link" data-text="Skills">
-                    <i class="fas fa-code"></i>
-                    <span>Skills</span>
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-text">Skills</span>
+                    <div class="nav-indicator"></div>
                 </a>
-                <a href="#projects" class="nav-link" data-text="Projects">
-                    <i class="fas fa-rocket"></i>
-                    <span>Projects</span>
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <span class="nav-icon">🚀</span>
+                    <span class="nav-text">Projects</span>
+                    <div class="nav-indicator"></div>
                 </a>
-                <a href="#achievements" class="nav-link" data-text="Achievements">
-                    <i class="fas fa-trophy"></i>
-                    <span>Achievements</span>
-                </a>
-                <a href="#contact" class="nav-link" data-text="Contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact</span>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <span class="nav-icon">📬</span>
+                    <span class="nav-text">Contact</span>
+                    <div class="nav-indicator"></div>
                 </a>
             </div>
             
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
+                <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
                 </button>
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <button class="menu-toggle" id="menuToggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
         </div>
-        <!-- Enhanced Scroll Progress Bar -->
-        <div class="scroll-progress" id="scroll-progress">
-            <div class="progress-glow"></div>
+        
+        <!-- Progress Bar -->
+        <div class="scroll-progress">
+            <div class="progress-bar"></div>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header id="home" class="header">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </div>
+        
         <div class="container">
-            <div class="header-content">
-                <div class="header-text">
-                    <div class="typing-container">
-                        <span class="subtitle">
-                            <i class="fas fa-graduation-cap"></i>
-                            Hello, I'm
-                        </span>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="greeting">
+                        <span class="wave">👋</span>
+                        <span class="greeting-text">Hello, I'm</span>
                     </div>
-                    <h1 class="title">
-                        <span class="title-line">Kamaaksha</span>
-                        <span class="title-line">Kharul</span>
+                    
+                    <h1 class="hero-title">
+                        <span class="name-first">Kamaaksha</span>
+                        <span class="name-last">Kharul</span>
                     </h1>
-                    <div class="role-container">
-                        <h2 class="role">
-                            <span class="role-static">I'm a </span>
-                            <span class="role-dynamic" id="dynamic-role"></span>
-                            <span class="cursor">|</span>
-                        </h2>
+                    
+                    <div class="hero-subtitle">
+                        <span class="subtitle-static">I'm a </span>
+                        <span class="subtitle-dynamic" id="dynamicText"></span>
+                        <span class="cursor-blink">|</span>
                     </div>
-                    <p class="description">
-                        3rd Year Computer Engineering student at PCCOE, Pune with a passion for AI/ML, 
-                        web development, and solving real-world problems through innovative technology solutions.
+                    
+                    <p class="hero-description">
+                        3rd Year Computer Engineering student at PCCOE, Pune. 
+                        Passionate about AI/ML, web development, and creating innovative solutions 
+                        that make a difference. Currently maintaining a <span class="highlight-text">8.93 CGPA</span> 
+                        and building the future one project at a time.
                     </p>
-                    <div class="header-actions">
-                        <a href="#projects" class="btn btn-primary btn-glow">
-                            <i class="fas fa-eye"></i>
-                            <span>View My Projects</span>
-                            <div class="btn-shine"></div>
-                        </a>
-                        <a href="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/kamaaksha_recent.pdf" class="btn btn-outline btn-magnetic" target="_blank" rel="noopener noreferrer">
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="300">0</div>
+                            <div class="stat-label">Problems Solved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-label">⭐ Java Rating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <a href="./kamaaksha_recent.pdf" class="btn btn-secondary" target="_blank">
+                            <span>Download CV</span>
                             <i class="fas fa-download"></i>
-                            <span>Download Resume</span>
                         </a>
                     </div>
                     
-                    <!-- Code Animation -->
-                    <div class="code-animation">
-                        <div class="code-line">
-                            <span class="code-comment">// Student Developer</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="code-keyword">class</span> 
-                            <span class="code-class">Kamaaksha</span> 
-                            <span class="code-bracket">{</span>
-                        </div>
-                        <div class="code-line code-indent">
-                            <span class="code-property">cgpa:</span> 
-                            <span class="code-number">8.93</span><span class="code-semicolon">;</span>
-                        </div>
-                        <div class="code-line code-indent">
-                            <span class="code-property">skills:</span> 
-                            <span class="code-string">["Java", "Python", "ML"]</span><span class="code-semicolon">;</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="code-bracket">}</span>
-                        </div>
+                    <div class="social-links">
+                        <a href="https://github.com/kharulkamaaksha" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/kamaaksha-kharul" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://hackerrank.com/kamaaksha" class="social-link" target="_blank">
+                            <i class="fab fa-hackerrank"></i>
+                            <span>HackerRank</span>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="header-image">
-                    <div class="image-container">
-                        <div class="image-wrapper">
-                            <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/kp2.JPEG" 
-                                 alt="Kamaaksha Kharul - Computer Engineering Student" 
-                                 loading="eager"
-                                 onerror="this.style.display='none'; console.log('Failed to load main image');">
-                            <div class="image-overlay">
-                                <div class="overlay-text">
-                                    <span>Computer Engineer</span>
-                                    <span>CGPA: 8.93</span>
+                <div class="hero-visual">
+                    <div class="profile-container">
+                        <div class="profile-card">
+                            <div class="card-glow"></div>
+                            <img src="./kp2.JPEG" alt="Kamaaksha Kharul" class="profile-img" 
+                                 onerror="this.style.display='none'; document.querySelector('.profile-placeholder').style.display='flex';">
+                            <div class="profile-placeholder" style="display: none;">
+                                <i class="fas fa-user"></i>
+                                <span>Kamaaksha Kharul</span>
+                            </div>
+                            <div class="card-info">
+                                <div class="info-item">
+                                    <span class="info-label">Status</span>
+                                    <span class="info-value">Available for Internships</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">CGPA</span>
+                                    <span class="info-value">8.93</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Location</span>
+                                    <span class="info-value">Pune, Maharashtra</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="image-effects">
-                            <div class="effect-1"></div>
-                            <div class="effect-2"></div>
-                            <div class="effect-3"></div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-icon icon-1">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="floating-icon icon-2">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="floating-icon icon-3">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <div class="floating-icon icon-4">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="floating-icon icon-5">
+                                <i class="fab fa-react"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Enhanced Scroll Indicator -->
-            <div class="scroll-indicator">
-                <div class="scroll-text">Scroll Down</div>
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <div class="arrows">
-                    <span></span>
-                    <span></span>
-                    <span></span>
                 </div>
             </div>
         </div>
         
-        <!-- Interactive Background -->
-        <div class="header-bg">
-            <canvas class="header-particles" id="particle-canvas"></canvas>
-            <div class="gradient-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll to explore</div>
+            <div class="scroll-arrow">
+                <div class="arrow-down"></div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">
-                    <i class="fas fa-user"></i>
-                    About Me
-                </span>
-                <h2 class="section-title">My Journey</h2>
-                <p class="section-description">
-                    Learn more about my academic journey and passion for technology
-                </p>
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">My Story</h2>
             </div>
             
             <div class="about-content">
-                <div class="about-image reveal-child">
+                <div class="about-visual">
                     <div class="about-image-container">
-                        <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/about.JPEG" 
-                             alt="About Kamaaksha Kharul" 
-                             loading="lazy"
-                             onerror="this.style.display='none'; console.log('Failed to load about image');">
-                        <div class="about-image-frame">
-                            <div class="frame-corner frame-tl"></div>
-                            <div class="frame-corner frame-tr"></div>
-                            <div class="frame-corner frame-bl"></div>
-                            <div class="frame-corner frame-br"></div>
+                        <img src="./about.JPEG" alt="About Kamaaksha" class="about-img"
+                             onerror="this.style.display='none'; document.querySelector('.about-placeholder').style.display='flex';">
+                        <div class="about-placeholder" style="display: none;">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Computer Engineering Student</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-title">PCCOE, Pune</span>
+                                <span class="overlay-subtitle">Computer Engineering</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="experience">
-                        <span class="number">8.93</span>
-                        <span class="text">Current<br>CGPA</span>
+                    
+                    <div class="achievements-float">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🎯</div>
+                            <div class="achievement-text">
+                                <span class="achievement-number">8.93</span>
+                                <span class="achievement-label">CGPA</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">⭐</div>
+                            <div class="achievement-text">
+                                <span class="achievement-number">5★</span>
+                                <span class="achievement-label">Java</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="about-text reveal-child">
-                    <h3>
-                        <i class="fas fa-university"></i>
-                        Computer Engineering Student at PCCOE, Pune
-                    </h3>
-                    <p>
-                        I'm currently pursuing my Bachelor's degree in Computer Engineering at Pimpri Chinchwad College of Engineering, 
-                        Pune. With a current CGPA of 8.93, I'm passionate about exploring the intersection of artificial intelligence 
-                        and practical software development.
-                    </p>
-                    <p>
-                        My academic journey has been enriched by hands-on projects in machine learning, web development, 
-                        and data analysis. I enjoy participating in coding competitions and continuously learning new technologies 
-                        to stay at the forefront of innovation.
-                    </p>
+                <div class="about-text">
+                    <div class="text-content">
+                        <h3>Passionate Computer Engineering Student</h3>
+                        <p>
+                            I'm currently in my 3rd year pursuing Bachelor's in Computer Engineering at 
+                            Pimpri Chinchwad College of Engineering, Pune. With a strong academic record 
+                            of 8.93 CGPA, I'm passionate about leveraging technology to solve real-world problems.
+                        </p>
+                        <p>
+                            My journey in tech has been driven by curiosity and a desire to innovate. 
+                            From building machine learning models for agriculture to creating web applications 
+                            for productivity, I love turning ideas into reality through code.
+                        </p>
+                    </div>
                     
-                    <div class="stats">
-                        <div class="stat-item reveal-child">
-                            <div class="stat-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>300+</h4>
-                            <p>Coding Problems</p>
-                            <div class="stat-progress">
-                                <div class="progress-bar" style="width: 85%"></div>
+                    <div class="skills-preview">
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
                             </div>
                         </div>
-                        <div class="stat-item reveal-child">
-                            <div class="stat-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h4>8.93</h4>
-                            <p>CGPA</p>
-                            <div class="stat-progress">
-                                <div class="progress-bar" style="width: 89%"></div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
                             </div>
                         </div>
-                        <div class="stat-item reveal-child">
-                            <div class="stat-icon">
-                                <i class="fab fa-hackerrank"></i>
-                            </div>
-                            <h4>5★</h4>
-                            <p>HackerRank Java</p>
-                            <div class="stat-progress">
-                                <div class="progress-bar" style="width: 100%"></div>
+                        <div class="skill-item">
+                            <span class="skill-name">Machine Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
                             </div>
                         </div>
-                        <div class="stat-item reveal-child">
-                            <div class="stat-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <h4>4</h4>
-                            <p>Major Projects</p>
-                            <div class="stat-progress">
-                                <div class="progress-bar" style="width: 80%"></div>
+                        <div class="skill-item">
+                            <span class="skill-name">Web Development</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fas fa-birthday-cake"></i>
-                            <span><strong>Age:</strong> 20 years</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>Location:</strong> Pune, Maharashtra</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-envelope"></i>
-                            <span><strong>Email:</strong> kharulkamaaksha@gmail.com</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span><strong>Phone:</strong> +91-7083191478</span>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Pune, Maharashtra</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>kharulkamaaksha@gmail.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-7083191478</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-birthday-cake"></i>
+                                <span>20 years old</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -325,163 +355,358 @@
         </div>
     </section>
 
-    <!-- Rest of your sections remain the same... -->
-    <!-- I'll include the key sections with image fixes -->
-    
-    <!-- Projects Section with fixed image URLs -->
-    <section id="projects" class="projects section">
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">
-                    <i class="fas fa-rocket"></i>
-                    My Projects
-                </span>
+                <span class="section-tag">Skills & Technologies</span>
+                <h2 class="section-title">What I Work With</h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-categories">
+                    <button class="category-btn active" data-category="programming">
+                        <i class="fas fa-code"></i>
+                        <span>Programming</span>
+                    </button>
+                    <button class="category-btn" data-category="web">
+                        <i class="fas fa-globe"></i>
+                        <span>Web Technologies</span>
+                    </button>
+                    <button class="category-btn" data-category="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools & Frameworks</span>
+                    </button>
+                    <button class="category-btn" data-category="ml">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning</span>
+                    </button>
+                </div>
+                
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Programming Skills -->
+                    <div class="skill-card" data-category="programming">
+                        <div class="skill-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3>Java</h3>
+                        <p>Advanced proficiency with 5⭐ HackerRank rating</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="programming">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Data science, ML, and backend development</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="80"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="programming">
+                        <div class="skill-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Modern ES6+, DOM manipulation, async programming</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="programming">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>C++</h3>
+                        <p>Data structures, algorithms, competitive programming</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="70"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Technologies -->
+                    <div class="skill-card" data-category="web" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <p>Semantic markup, accessibility, modern standards</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="web" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <p>Flexbox, Grid, animations, responsive design</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="web" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>React</h3>
+                        <p>Components, hooks, state management</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="65"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="web" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3>Node.js</h3>
+                        <p>Express, RESTful APIs, server-side development</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="60"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools & Frameworks -->
+                    <div class="skill-card" data-category="tools" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git & GitHub</h3>
+                        <p>Version control, collaboration, open source</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="85"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="tools" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>MySQL</h3>
+                        <p>Database design, queries, optimization</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="tools" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3>Android Studio</h3>
+                        <p>Mobile app development, Java/Kotlin</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="65"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Machine Learning -->
+                    <div class="skill-card" data-category="ml" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>TensorFlow</h3>
+                        <p>Deep learning, neural networks, computer vision</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="70"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="ml" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Scikit-learn</h3>
+                        <p>Machine learning algorithms, data preprocessing</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card" data-category="ml" style="display: none;">
+                        <div class="skill-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>OpenCV</h3>
+                        <p>Computer vision, image processing</p>
+                        <div class="skill-level">
+                            <div class="level-bar" data-level="65"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-description">
-                    Real projects I've built showcasing my technical skills and problem-solving abilities
-                </p>
             </div>
             
             <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="fas fa-th"></i>
-                    All Projects
-                </button>
-                <button class="filter-btn" data-filter="ml">
-                    <i class="fas fa-brain"></i>
-                    Machine Learning
-                </button>
-                <button class="filter-btn" data-filter="web">
-                    <i class="fas fa-globe"></i>
-                    Web Development
-                </button>
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
             </div>
             
             <div class="projects-grid">
-                <!-- Cotton Crop Disease Prediction -->
-                <div class="project-card reveal-child" data-category="ml">
-                    <div class="project-img">
-                        <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/cotton.jpeg" 
-                             alt="Cotton Crop Disease Prediction System" 
-                             loading="lazy"
-                             onerror="this.style.display='none';">
+                <!-- Cotton Disease Prediction -->
+                <div class="project-card" data-category="ml">
+                    <div class="project-image">
+                        <img src="./cotton.jpeg" alt="Cotton Disease Prediction" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;">
+                            <i class="fas fa-leaf"></i>
+                            <span>Cotton Disease Prediction</span>
+                        </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/kharulkamaaksha" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <div class="project-tags">
-                            <span><i class="fas fa-brain"></i> Machine Learning</span>
-                            <span><i class="fas fa-leaf"></i> Agriculture</span>
+                            <span class="tag tag-ml">Machine Learning</span>
+                            <span class="tag tag-cv">Computer Vision</span>
                         </div>
                         <h3>Cotton Crop Disease Prediction</h3>
-                        <p>Advanced ML model achieving 93% accuracy in detecting diseases in cotton crops using computer vision techniques. Features multilingual support for better accessibility to farmers.</p>
+                        <p>ML model achieving 93% accuracy in detecting cotton crop diseases using TensorFlow and computer vision techniques.</p>
                         <div class="project-tech">
                             <span>TensorFlow</span>
-                            <span>MobileNetV2</span>
                             <span>Python</span>
                             <span>OpenCV</span>
+                            <span>MobileNetV2</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">93%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fuel Consumption Prediction -->
-                <div class="project-card reveal-child" data-category="ml">
-                    <div class="project-img">
-                        <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/fuel.jpeg" 
-                             alt="Fuel Consumption Prediction Analysis" 
-                             loading="lazy"
-                             onerror="this.style.display='none';">
+                <div class="project-card" data-category="ml">
+                    <div class="project-image">
+                        <img src="./fuel.jpeg" alt="Fuel Consumption Prediction"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;">
+                            <i class="fas fa-car"></i>
+                            <span>Fuel Prediction System</span>
+                        </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/kharulkamaaksha" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <div class="project-tags">
-                            <span><i class="fas fa-chart-bar"></i> Data Science</span>
-                            <span><i class="fas fa-car"></i> Automotive</span>
+                            <span class="tag tag-ml">Data Science</span>
+                            <span class="tag tag-analysis">Analysis</span>
                         </div>
                         <h3>Fuel Consumption Prediction</h3>
-                        <p>Regression-based tool with intuitive visualizations for predicting vehicle fuel efficiency. Helps users make informed decisions about vehicle purchases.</p>
+                        <p>Regression model with interactive visualizations for predicting vehicle fuel efficiency and consumption patterns.</p>
                         <div class="project-tech">
-                            <span>scikit-learn</span>
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
                             <span>Matplotlib</span>
                             <span>Pandas</span>
-                            <span>NumPy</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Task Management System -->
-                <div class="project-card reveal-child" data-category="web">
-                    <div class="project-img">
-                        <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/taskmanager.webp" 
-                             alt="Task Management System Interface" 
-                             loading="lazy"
-                             onerror="this.style.display='none';">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="./taskmanager.webp" alt="Task Management System"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;">
+                            <i class="fas fa-tasks"></i>
+                            <span>Task Manager</span>
+                        </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/kharulkamaaksha" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <div class="project-tags">
-                            <span><i class="fas fa-globe"></i> Web App</span>
-                            <span><i class="fas fa-tasks"></i> Productivity</span>
+                            <span class="tag tag-web">Web App</span>
+                            <span class="tag tag-productivity">Productivity</span>
                         </div>
                         <h3>Task Management System</h3>
-                        <p>Queue-based task management application with intelligent prioritization algorithms. Features drag-and-drop interface and deadline tracking.</p>
+                        <p>Queue-based task management with drag-and-drop interface, priority algorithms, and deadline tracking.</p>
                         <div class="project-tech">
+                            <span>JavaScript</span>
                             <span>HTML5</span>
                             <span>CSS3</span>
-                            <span>JavaScript</span>
                             <span>LocalStorage</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Finance Tracker -->
-                <div class="project-card reveal-child" data-category="web">
-                    <div class="project-img">
-                        <img src="https://raw.githubusercontent.com/kharulkamaaksha/personalwebsite/main/finance.webp" 
-                             alt="Personal Finance Tracker Dashboard" 
-                             loading="lazy"
-                             onerror="this.style.display='none';">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="./finance.webp" alt="Finance Tracker"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Finance Tracker</span>
+                        </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/kharulkamaaksha" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <div class="project-tags">
-                            <span><i class="fas fa-chart-pie"></i> Finance</span>
-                            <span><i class="fas fa-globe"></i> Web App</span>
+                            <span class="tag tag-web">Web App</span>
+                            <span class="tag tag-finance">Finance</span>
                         </div>
                         <h3>Personal Finance Tracker</h3>
-                        <p>Stack-based expense management system with comprehensive visualization charts. Helps users track spending patterns and set budgets.</p>
+                        <p>Stack-based expense management with comprehensive charts, budget tracking, and spending analysis.</p>
                         <div class="project-tech">
                             <span>JavaScript</span>
                             <span>Chart.js</span>
-                            <span>HTML5</span>
                             <span>CSS3</span>
+                            <span>HTML5</span>
                         </div>
                     </div>
                 </div>
@@ -489,58 +714,100 @@
         </div>
     </section>
 
-    <!-- Include all other sections (Skills, Achievements, Contact, Footer) as they were before -->
-    <!-- ... rest of your HTML content ... -->
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-description">
+                    Ready to collaborate or discuss opportunities? I'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>kharulkamaaksha@gmail.com</p>
+                        <a href="mailto:kharulkamaaksha@gmail.com" class="contact-link">Send Email</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+91-7083191478</p>
+                        <a href="tel:+917083191478" class="contact-link">Call Now</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Pune, Maharashtra, India</p>
+                        <span class="contact-link">Available for Internships</span>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <label>Your Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <label>Your Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <label>Subject</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label>Your Message</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Kamaaksha Kharul. Made with ❤️ and lots of ☕</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/kharulkamaaksha" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/kamaaksha-kharul" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://hackerrank.com/kamaaksha" target="_blank">
+                        <i class="fab fa-hackerrank"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script src="image-handler.js"></script>
-    
-    <!-- Enhanced typing animation script -->
-    <script>
-        // Typing animation for role
-        document.addEventListener('DOMContentLoaded', () => {
-            const roles = [
-                'Computer Engineer',
-                'Problem Solver', 
-                'ML Enthusiast',
-                'Web Developer',
-                'Student Developer'
-            ];
-            
-            let roleIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            const dynamicRole = document.getElementById('dynamic-role');
-            
-            function typeRole() {
-                const currentRole = roles[roleIndex];
-                
-                if (isDeleting) {
-                    dynamicRole.textContent = currentRole.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    dynamicRole.textContent = currentRole.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                let typeSpeed = isDeleting ? 100 : 150;
-                
-                if (!isDeleting && charIndex === currentRole.length) {
-                    typeSpeed = 2000; // Pause at end
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                    typeSpeed = 500; // Pause before next word
-                }
-                
-                setTimeout(typeRole, typeSpeed);
-            }
-            
-            // Start typing animation
-            setTimeout(typeRole, 1000);
-        });
-    </script>
 </body>
 </html>
