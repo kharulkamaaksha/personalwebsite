@@ -1,4 +1,4 @@
-// Modern Portfolio JavaScript - 2024
+// Modern Portfolio JavaScript - 2024 (Professional Version)
 
 // Global Variables
 let isLoaded = false;
@@ -14,8 +14,7 @@ function initializeApp() {
     // Remove preloader after content loads
     setTimeout(removePreloader, 2000);
     
-    // Initialize all components
-    initCustomCursor();
+    // Initialize all components (removed cursor and matrix)
     initNavigation();
     initThemeToggle();
     initScrollProgress();
@@ -25,8 +24,8 @@ function initializeApp() {
     initProjectsFilter();
     initContactForm();
     initScrollAnimations();
-    initMatrixBackground();
     initIntersectionObserver();
+    initProfessionalAnimations();
     
     // Mark as loaded
     isLoaded = true;
@@ -41,55 +40,6 @@ function removePreloader() {
             preloader.style.display = 'none';
         }, 500);
     }
-}
-
-// Custom Cursor
-function initCustomCursor() {
-    if (window.innerWidth <= 768) return; // Disable on mobile
-    
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
-    
-    if (!cursor || !follower) return;
-    
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    });
-    
-    // Smooth follower animation
-    function animateFollower() {
-        const speed = 0.2;
-        followerX += (mouseX - followerX) * speed;
-        followerY += (mouseY - followerY) * speed;
-        
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-        
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-    
-    // Cursor hover effects
-    const interactiveElements = document.querySelectorAll('a, button, .btn, .nav-link, .project-card');
-    
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            follower.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
 }
 
 // Navigation Management
@@ -444,6 +394,57 @@ function initContactForm() {
     });
 }
 
+// Professional Animations
+function initProfessionalAnimations() {
+    // Smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Enhanced hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('.btn, .project-card, .skill-card, .contact-card');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            if (!this.style.transform.includes('translateY')) {
+                this.style.transform = 'translateY(-3px)';
+            }
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            if (this.style.transform.includes('translateY(-3px)')) {
+                this.style.transform = 'translateY(0)';
+            }
+        });
+    });
+    
+    // Parallax effect for hero section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (scrolled < heroSection.offsetHeight) {
+                const shapes = heroSection.querySelectorAll('.shape');
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.1;
+                    shape.style.transform = `translateY(${rate * speed}px)`;
+                });
+            }
+        });
+    }
+}
+
 // Notification System
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
@@ -502,59 +503,6 @@ function initScrollAnimations() {
     });
     
     animateElements.forEach(el => observer.observe(el));
-}
-
-// Matrix Background Effect
-function initMatrixBackground() {
-    const canvas = document.getElementById('matrix-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    
-    // Set canvas size
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Matrix characters
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-    const charArray = chars.split('');
-    
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    
-    // Initialize drops
-    for (let i = 0; i < columns; i++) {
-        drops[i] = 1;
-    }
-    
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = '#00ff41';
-        ctx.font = fontSize + 'px monospace';
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = charArray[Math.floor(Math.random() * charArray.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-    
-    // Only run on desktop for performance
-    if (window.innerWidth > 768) {
-        setInterval(drawMatrix, 100);
-    }
 }
 
 // Intersection Observer for performance
