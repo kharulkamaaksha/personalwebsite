@@ -19,9 +19,11 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-image-fix.css">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="kp2.JPEG" as="image">
+    <link rel="preload" href="about.JPEG" as="image">
 </head>
 <body>
     <!-- Navigation -->
@@ -52,6 +54,8 @@
                 </button>
             </div>
         </div>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress" id="scroll-progress"></div>
     </nav>
 
     <!-- Header Section -->
@@ -74,15 +78,15 @@
                             <i class="fas fa-eye"></i>
                             View My Projects
                         </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i>
-                            Get In Touch
+                        <a href="kamaaksha_recent.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-download"></i>
+                            Download Resume
                         </a>
                     </div>
                 </div>
                 <div class="header-image">
                     <div class="image-wrapper">
-                        <img src="kp2.JPEG" alt="Kamaaksha Kharul" loading="eager">
+                        <img src="kp2.JPEG" alt="Kamaaksha Kharul - Computer Engineering Student" loading="eager">
                         <div class="shape-1"></div>
                         <div class="shape-2"></div>
                     </div>
@@ -120,7 +124,7 @@
             
             <div class="about-content">
                 <div class="about-image reveal-child">
-                    <img src="about.JPEG" alt="About Kamaaksha" loading="lazy">
+                    <img src="about.JPEG" alt="About Kamaaksha Kharul" loading="lazy">
                     <div class="experience">
                         <span class="number">8.93</span>
                         <span class="text">Current<br>CGPA</span>
@@ -139,8 +143,8 @@
                     </p>
                     <p>
                         My academic journey has been enriched by hands-on projects in machine learning, web development, 
-                        and mobile applications. I enjoy participating in hackathons and coding competitions to challenge 
-                        myself and learn new technologies.
+                        and data analysis. I enjoy participating in coding competitions and continuously learning new technologies 
+                        to stay at the forefront of innovation.
                     </p>
                     
                     <div class="stats">
@@ -193,9 +197,9 @@
                     <i class="fas fa-code"></i>
                     My Skills
                 </span>
-                <h2 class="section-title">Technical Skills</h2>
+                <h2 class="section-title">Technical Expertise</h2>
                 <p class="section-description">
-                    Technologies and programming languages I've learned and worked with
+                    Technologies and programming languages I've learned and worked with during my academic journey
                 </p>
             </div>
             
@@ -392,7 +396,7 @@
                 </span>
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-description">
-                    Projects I've built showcasing my technical skills and problem-solving abilities
+                    Real projects I've built showcasing my technical skills and problem-solving abilities
                 </p>
             </div>
             
@@ -415,12 +419,12 @@
                 <!-- Cotton Crop Disease Prediction -->
                 <div class="project-card reveal-child" data-category="ml">
                     <div class="project-img">
-                        <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction" loading="lazy">
+                        <img src="cotton.jpeg" alt="Cotton Crop Disease Prediction System" loading="lazy">
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
+                            <a href="#" class="project-btn" title="View Details" aria-label="View Cotton Disease Prediction project details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="#" class="project-btn" title="Source Code">
+                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" aria-label="View source code on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -431,7 +435,7 @@
                             <span><i class="fas fa-leaf"></i> Agriculture</span>
                         </div>
                         <h3>Cotton Crop Disease Prediction</h3>
-                        <p>Advanced ML model achieving 93% accuracy in detecting diseases in cotton crops using computer vision techniques. Features multilingual support for better accessibility to farmers.</p>
+                        <p>Advanced ML model achieving 93% accuracy in detecting diseases in cotton crops using computer vision techniques. Features multilingual support for better accessibility to farmers in rural areas.</p>
                         <div class="project-tech">
                             <span>TensorFlow</span>
                             <span>MobileNetV2</span>
@@ -444,12 +448,12 @@
                 <!-- Fuel Consumption Prediction -->
                 <div class="project-card reveal-child" data-category="ml">
                     <div class="project-img">
-                        <img src="fuel.jpeg" alt="Fuel Consumption Prediction" loading="lazy">
+                        <img src="fuel.jpeg" alt="Fuel Consumption Prediction Analysis" loading="lazy">
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
+                            <a href="#" class="project-btn" title="View Details" aria-label="View Fuel Consumption project details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="#" class="project-btn" title="Source Code">
+                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" aria-label="View source code on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -460,7 +464,7 @@
                             <span><i class="fas fa-car"></i> Automotive</span>
                         </div>
                         <h3>Fuel Consumption Prediction</h3>
-                        <p>Regression-based tool with intuitive visualizations for predicting vehicle fuel efficiency. Helps users make informed decisions about vehicle purchases and understand fuel consumption patterns.</p>
+                        <p>Regression-based tool with intuitive visualizations for predicting vehicle fuel efficiency. Helps users make informed decisions about vehicle purchases and understand consumption patterns.</p>
                         <div class="project-tech">
                             <span>scikit-learn</span>
                             <span>Matplotlib</span>
@@ -473,12 +477,12 @@
                 <!-- Task Management System -->
                 <div class="project-card reveal-child" data-category="web">
                     <div class="project-img">
-                        <img src="taskmanager.webp" alt="Task Management System" loading="lazy">
+                        <img src="taskmanager.webp" alt="Task Management System Interface" loading="lazy">
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
+                            <a href="#" class="project-btn" title="View Details" aria-label="View Task Manager project details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="#" class="project-btn" title="Source Code">
+                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" aria-label="View source code on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -502,12 +506,12 @@
                 <!-- Finance Tracker -->
                 <div class="project-card reveal-child" data-category="web">
                     <div class="project-img">
-                        <img src="finance.webp" alt="Personal Finance Tracker" loading="lazy">
+                        <img src="finance.webp" alt="Personal Finance Tracker Dashboard" loading="lazy">
                         <div class="project-overlay">
-                            <a href="#" class="project-btn" title="View Details">
+                            <a href="#" class="project-btn" title="View Details" aria-label="View Finance Tracker project details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="#" class="project-btn" title="Source Code">
+                            <a href="https://github.com/kharulkamaaksha" class="project-btn" title="Source Code" aria-label="View source code on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -518,7 +522,7 @@
                             <span><i class="fas fa-globe"></i> Web App</span>
                         </div>
                         <h3>Personal Finance Tracker</h3>
-                        <p>Stack-based expense management system with comprehensive visualization charts. Helps users track spending patterns, set budgets, and achieve financial goals through intuitive data representation.</p>
+                        <p>Stack-based expense management system with comprehensive visualization charts. Helps users track spending patterns, set budgets, and achieve financial goals through data-driven insights.</p>
                         <div class="project-tech">
                             <span>JavaScript</span>
                             <span>Chart.js</span>
@@ -539,7 +543,7 @@
                     <i class="fas fa-trophy"></i>
                     Achievements
                 </span>
-                <h2 class="section-title">Academic Achievements</h2>
+                <h2 class="section-title">Academic Milestones</h2>
                 <p class="section-description">
                     Recognition and accomplishments during my academic journey
                 </p>
@@ -551,7 +555,7 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>High Academic Performance</h3>
-                    <p>Maintaining a CGPA of 8.93 throughout my engineering program with consistent academic excellence</p>
+                    <p>Maintaining a CGPA of 8.93 throughout my engineering program with consistent academic excellence and dedication to learning</p>
                     <span class="achievement-year">2022-Present</span>
                 </div>
                 
@@ -560,7 +564,7 @@
                         <i class="fab fa-hackerrank"></i>
                     </div>
                     <h3>HackerRank 5-Star Java</h3>
-                    <p>Achieved 5-star rating in Java programming on HackerRank platform, demonstrating strong programming skills</p>
+                    <p>Achieved 5-star rating in Java programming on HackerRank platform, demonstrating strong programming skills and problem-solving abilities</p>
                     <span class="achievement-year">2024</span>
                 </div>
                 
@@ -569,7 +573,7 @@
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>300+ Problems Solved</h3>
-                    <p>Solved over 300 coding problems across various platforms including LeetCode, HackerRank, and GeeksforGeeks</p>
+                    <p>Solved over 300 coding problems across various platforms including LeetCode, HackerRank, and GeeksforGeeks, showcasing algorithmic thinking</p>
                     <span class="achievement-year">2023-2024</span>
                 </div>
                 
@@ -578,7 +582,7 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>Machine Learning Projects</h3>
-                    <p>Successfully implemented multiple ML projects with high accuracy rates, including disease prediction systems</p>
+                    <p>Successfully implemented multiple ML projects with high accuracy rates, including agricultural disease prediction systems with real-world applications</p>
                     <span class="achievement-year">2024</span>
                 </div>
                 
@@ -586,8 +590,8 @@
                     <div class="achievement-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>Web Development Portfolio</h3>
-                    <p>Built and deployed multiple web applications demonstrating proficiency in frontend and backend technologies</p>
+                    <h3>Full-Stack Development</h3>
+                    <p>Built and deployed multiple web applications demonstrating proficiency in both frontend and backend technologies with modern frameworks</p>
                     <span class="achievement-year">2023-Present</span>
                 </div>
                 
@@ -595,8 +599,8 @@
                     <div class="achievement-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Team Leadership</h3>
-                    <p>Led multiple group projects and collaborated effectively with diverse teams on various technical challenges</p>
+                    <h3>Collaborative Leadership</h3>
+                    <p>Successfully led multiple group projects and collaborated effectively with diverse teams on various technical challenges and academic initiatives</p>
                     <span class="achievement-year">2023-Present</span>
                 </div>
             </div>
@@ -613,7 +617,7 @@
                 </span>
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="section-description">
-                    Feel free to reach out for collaborations, internship opportunities, or just to say hello!
+                    Feel free to reach out for collaborations, internship opportunities, or academic discussions!
                 </p>
             </div>
             
@@ -664,19 +668,19 @@
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/kamaaksha-kharul" class="social-link" title="LinkedIn">
+                        <a href="https://linkedin.com/in/kamaaksha-kharul" class="social-link" title="Connect on LinkedIn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com/kharulkamaaksha" class="social-link" title="GitHub">
+                        <a href="https://github.com/kharulkamaaksha" class="social-link" title="View GitHub Profile" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://hackerrank.com/kamaaksha" class="social-link" title="HackerRank">
+                        <a href="https://hackerrank.com/kamaaksha" class="social-link" title="HackerRank Profile" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-hackerrank"></i>
                         </a>
-                        <a href="https://leetcode.com/kamaaksha" class="social-link" title="LeetCode">
+                        <a href="https://leetcode.com/kamaaksha" class="social-link" title="LeetCode Profile" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-code"></i>
                         </a>
-                        <a href="mailto:kharulkamaaksha@gmail.com" class="social-link" title="Email">
+                        <a href="mailto:kharulkamaaksha@gmail.com" class="social-link" title="Send Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -689,7 +693,8 @@
                                 <i class="fas fa-user"></i>
                                 Your Name *
                             </label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required aria-describedby="name-error">
+                            <span class="error-message" id="name-error"></span>
                         </div>
                         
                         <div class="form-group">
@@ -697,7 +702,8 @@
                                 <i class="fas fa-envelope"></i>
                                 Your Email *
                             </label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required aria-describedby="email-error">
+                            <span class="error-message" id="email-error"></span>
                         </div>
                     </div>
                     
@@ -706,7 +712,8 @@
                             <i class="fas fa-tag"></i>
                             Subject *
                         </label>
-                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required aria-describedby="subject-error">
+                        <span class="error-message" id="subject-error"></span>
                     </div>
                     
                     <div class="form-group">
@@ -729,7 +736,8 @@
                             <i class="fas fa-comment"></i>
                             Your Message *
                         </label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell me more about your inquiry..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me more about your inquiry..." required aria-describedby="message-error"></textarea>
+                        <span class="error-message" id="message-error"></span>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">
@@ -755,7 +763,7 @@
                         <span>Kamaaksha</span>
                         <span class="logo-dot">.</span>
                     </a>
-                    <p>Computer Engineering Student passionate about technology and innovation. Always eager to learn and create meaningful solutions.</p>
+                    <p>Computer Engineering Student passionate about technology and innovation. Always eager to learn and create meaningful solutions that make a difference.</p>
                 </div>
                 
                 <div class="footer-links">
@@ -774,7 +782,7 @@
                         <ul>
                             <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
                             <li><a href="#projects"><i class="fas fa-graduation-cap"></i> My Projects</a></li>
-                            <li><a href="#skills"><i class="fas fa-brain"></i> Learning Path</a></li>
+                            <li><a href="kamaaksha_recent.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></li>
                             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                         </ul>
                     </div>
@@ -783,8 +791,8 @@
                         <h3>Connect</h3>
                         <ul>
                             <li><a href="mailto:kharulkamaaksha@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-                            <li><a href="https://linkedin.com/in/kamaaksha-kharul"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                            <li><a href="https://github.com/kharulkamaaksha"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/kamaaksha-kharul" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="https://github.com/kharulkamaaksha" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
                             <li><a href="tel:+917083191478"><i class="fas fa-phone"></i> Phone</a></li>
                         </ul>
                     </div>
@@ -814,11 +822,25 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="image-handler.js"></script>
     
     <script>
-        // Simple form handling for student portfolio
+        // Enhanced form handling with better validation
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('contact-form');
+            
+            // Clear error states when user starts typing
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    input.classList.remove('error');
+                    const errorElement = document.getElementById(input.name + '-error');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                        errorElement.classList.remove('visible');
+                    }
+                });
+            });
             
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -827,26 +849,99 @@
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData);
                 
-                // Simple validation
-                if (!data.name || !data.email || !data.subject || !data.message) {
-                    alert('Please fill in all required fields.');
-                    return;
+                // Reset previous errors
+                inputs.forEach(input => {
+                    input.classList.remove('error');
+                    const errorElement = document.getElementById(input.name + '-error');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                        errorElement.classList.remove('visible');
+                    }
+                });
+                
+                let isValid = true;
+                
+                // Validation
+                if (!data.name?.trim()) {
+                    showError('name', 'Name is required');
+                    isValid = false;
                 }
                 
-                // Simulate form submission
-                const submitBtn = form.querySelector('.btn');
-                const originalText = submitBtn.innerHTML;
+                if (!data.email?.trim()) {
+                    showError('email', 'Email is required');
+                    isValid = false;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+                    showError('email', 'Please enter a valid email address');
+                    isValid = false;
+                }
                 
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
+                if (!data.subject?.trim()) {
+                    showError('subject', 'Subject is required');
+                    isValid = false;
+                }
                 
-                setTimeout(() => {
-                    alert(`Thank you, ${data.name}! Your message has been received. I'll get back to you soon!`);
-                    form.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
+                if (!data.message?.trim()) {
+                    showError('message', 'Message is required');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Simulate form submission
+                    const submitBtn = form.querySelector('.btn');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        // Show success message
+                        showSuccessMessage(data.name);
+                        form.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                }
             });
+            
+            function showError(fieldName, message) {
+                const input = form.querySelector(`[name="${fieldName}"]`);
+                const errorElement = document.getElementById(fieldName + '-error');
+                
+                if (input) input.classList.add('error');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('visible');
+                }
+            }
+            
+            function showSuccessMessage(name) {
+                // Create and show success notification
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success-notification';
+                successDiv.innerHTML = `
+                    <div class="success-content">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Message Sent Successfully!</h4>
+                        <p>Thank you, ${name}! I'll get back to you within 24 hours.</p>
+                    </div>
+                `;
+                
+                document.body.appendChild(successDiv);
+                
+                // Remove after 5 seconds
+                setTimeout(() => {
+                    successDiv.remove();
+                }, 5000);
+            }
+        });
+        
+        // Add current year to footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement && yearElement.textContent.includes('2025')) {
+                yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
+            }
         });
     </script>
 </body>
