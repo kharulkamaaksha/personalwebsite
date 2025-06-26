@@ -1,11 +1,3 @@
-const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-};
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
         e.preventDefault();
@@ -22,7 +14,7 @@ hamburger.addEventListener('click', () => {
         : '<i class="fas fa-bars"></i>';
 });
 
-const handleScroll = debounce(() => {
+const handleScroll = () => {
     const navbar = document.querySelector('.navbar');
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -36,18 +28,16 @@ const handleScroll = debounce(() => {
 
     if (scrollY > 100) {
         navbar.classList.add('scrolled');
-        backToTop.style.opacity = '1';
-        backToTop.style.pointerEvents = 'auto';
+        backToTop.classList.add('visible');
     } else {
         navbar.classList.remove('scrolled');
-        backToTop.style.opacity = '0';
-        backToTop.style.pointerEvents = 'none';
+        backToTop.classList.remove('visible');
     }
 
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 60) {
+        if (scrollY >= sectionTop - 80) {
             current = section.getAttribute('id');
         }
     });
@@ -58,7 +48,7 @@ const handleScroll = debounce(() => {
             link.classList.add('active');
         }
     });
-}, 10);
+};
 
 window.addEventListener('scroll', handleScroll);
 
@@ -82,109 +72,98 @@ if (localStorage.getItem('theme') === 'dark') {
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-const revealElements = document.querySelectorAll('.section, .project-card, .certification, .achievement');
+const revealElements = document.querySelectorAll('.section-header, .about-content, .skills-content, .services-grid, .project-card, .testimonials-slider, .contact-content');
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
     revealElements.forEach(el => {
         const elTop = el.getBoundingClientRect().top;
         if (elTop < windowHeight - 100) {
-            el.classList.add('active');
+            el.classList.add('visible');
         }
     });
 };
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-const accordionHeaders = document.querySelectorAll('.accordion-header');
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const isActive = item.classList.contains('active');
-
-        document.querySelectorAll('.accordion-item').forEach(i => {
-            i.classList.remove('active');
-            i.querySelector('.accordion-content').style.maxHeight = null;
-            i.querySelector('.fa-chevron-down').classList.remove('rotate');
-        });
-
-        if (!isActive) {
-            item.classList.add('active');
-            const content = item.querySelector('.accordion-content');
-            content.style.maxHeight = content.scrollHeight + 'px';
-            header.querySelector('.fa-chevron-down').classList.add('rotate');
-        }
+const tabButtons = document.querySelectorAll('.tab-btn');
+const skillsPanels = document.querySelectorAll('.skills-panel');
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        skillsPanels.forEach(panel => panel.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.getAttribute('data-tab')).classList.add('active');
     });
 });
 
-const modals = document.querySelectorAll('.modal');
+const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
-const closes = document.querySelectorAll('.close');
-
-projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const modalId = card.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'flex';
-            setTimeout(() => modal.classList.add('active'), 10);
-        }
-    });
-});
-
-closes.forEach(close => {
-    close.addEventListener('click', () => {
-        modals.forEach(modal => {
-            modal.classList.remove('active');
-            setTimeout(() => modal.style.display = 'none', 300);
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.getAttribute('data-filter');
+        projectCards.forEach(card => {
+            card.classList.remove('visible');
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.classList.add('visible');
+            }
         });
     });
 });
 
-window.addEventListener('click', e => {
-    modals.forEach(modal => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            setTimeout(() => modal.style.display = 'none', 300);
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const prevButton = document.querySelector('.slider-arrow.prev');
+const nextButton = document.querySelector('.slider-arrow.next');
+let currentTestimonial = 0;
+
+const updateTestimonial = () => {
+    testimonialCards.forEach((card, index) => {
+        card.classList.remove('active');
+        if (index === currentTestimonial) {
+            card.classList.add('active');
         }
     });
+};
+
+prevButton.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+    updateTestimonial();
+});
+
+nextButton.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+    updateTestimonial();
 });
 
 const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-        e.preventDefault();
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
-        let valid = true;
+contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    let valid = true;
 
-        document.querySelectorAll('.error-message').forEach(error => {
-            error.textContent = '';
-            error.classList.remove('visible');
-        });
+    document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
 
-        if (!name.value.trim()) {
-            name.nextElementSibling.textContent = 'Name is required';
-            name.nextElementSibling.classList.add('visible');
-            valid = false;
-        }
-        if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-            email.nextElementSibling.textContent = 'Valid email is required';
-            email.nextElementSibling.classList.add('visible');
-            valid = false;
-        }
-        if (!message.value.trim()) {
-            message.nextElementSibling.textContent = 'Message is required';
-            message.nextElementSibling.classList.add('visible');
-            valid = false;
-        }
+    if (!name.value.trim()) {
+        name.nextElementSibling.textContent = 'Name is required';
+        valid = false;
+    }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.nextElementSibling.textContent = 'Valid email is required';
+        valid = false;
+    }
+    if (!message.value.trim()) {
+        message.nextElementSibling.textContent = 'Message is required';
+        valid = false;
+    }
 
-        if (valid) {
-            alert(`Thank you, ${name.value}! Your message has been sent.`);
-            contactForm.reset();
-        }
-    });
-}
+    if (valid) {
+        alert(`Thank you, ${name.value}! Your message has been sent.`);
+        contactForm.reset();
+    }
+});
 
 const canvas = document.getElementById('particle-canvas');
 if (canvas) {
@@ -193,15 +172,15 @@ if (canvas) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 40;
+    const particleCount = window.innerWidth < 768 ? 30 : 50;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 1 + 0.5;
-            this.speedX = Math.random() * 0.1 - 0.05;
-            this.speedY = Math.random() * 0.1 - 0.05;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 0.15 - 0.075;
+            this.speedY = Math.random() * 0.15 - 0.075;
         }
         update() {
             this.x += this.speedX;
@@ -210,7 +189,7 @@ if (canvas) {
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(255, 228, 233, 0.9)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
