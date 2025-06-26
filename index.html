@@ -105,13 +105,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="hero-bg">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-            </div>
+            <!-- Removed floating shapes -->
         </div>
         
         <div class="container">
@@ -186,7 +180,7 @@
                     <div class="profile-container">
                         <div class="profile-card">
                             <div class="card-glow"></div>
-                            <img src="./kp2.JPEG" alt="Kamaaksha Kharul" class="profile-img" 
+                            <img src="./kp2.JPEG" alt="Kamaaksha Kharul" class="profile-img"
                                  onerror="this.style.display='none'; document.querySelector('.profile-placeholder').style.display='flex';">
                             <div class="profile-placeholder" style="display: none;">
                                 <i class="fas fa-user"></i>
@@ -208,23 +202,7 @@
                             </div>
                         </div>
                         
-                        <div class="floating-elements">
-                            <div class="floating-icon icon-1">
-                                <i class="fab fa-java"></i>
-                            </div>
-                            <div class="floating-icon icon-2">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div class="floating-icon icon-3">
-                                <i class="fab fa-js-square"></i>
-                            </div>
-                            <div class="floating-icon icon-4">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="floating-icon icon-5">
-                                <i class="fab fa-react"></i>
-                            </div>
-                        </div>
+                        <!-- Removed floating elements -->
                     </div>
                 </div>
             </div>
@@ -802,17 +780,18 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    
+    <!-- Emergency fix for preloader -->
     <script>
-  // Force remove preloader after 3 seconds
-  setTimeout(function() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.display = 'none';
-    }
-    // Make sure other content is visible
-    document.body.style.overflow = 'auto';
-    document.body.style.visibility = 'visible';
-  }, 3000);
-</script>
+        // Force remove preloader after 2 seconds
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+            document.body.style.overflow = 'auto';
+            document.body.style.visibility = 'visible';
+        }, 2000);
+    </script>
 </body>
 </html>
