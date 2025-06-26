@@ -1812,3 +1812,111 @@ img[loading="lazy"] {
 img[loading="lazy"].loaded {
   opacity: 1;
 }
+/*=============== FORM ERROR HANDLING ===============*/
+.error-message {
+  display: block;
+  color: var(--secondary-color);
+  font-size: var(--smaller-size);
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: var(--transition);
+}
+
+.error-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+/*=============== SUCCESS NOTIFICATION ===============*/
+.success-notification {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--accent-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xl);
+  z-index: var(--z-modal);
+  animation: slideInRight 0.5s ease-out;
+  max-width: 350px;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.success-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.success-content i {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.success-content h4 {
+  color: var(--dark-color);
+  font-size: var(--normal-size);
+  margin-bottom: 0.5rem;
+}
+
+.success-content p {
+  color: var(--text-light);
+  font-size: var(--small-size);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/*=============== SCROLL PROGRESS BAR ===============*/
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  z-index: var(--z-fixed);
+  transition: width 0.1s ease;
+  border-radius: 0 2px 2px 0;
+  width: 0%;
+}
+
+/*=============== MOBILE RESPONSIVE IMPROVEMENTS ===============*/
+@media screen and (max-width: 576px) {
+  .success-notification {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+  
+  .success-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .success-content i {
+    margin-top: 0;
+    align-self: center;
+  }
+}
