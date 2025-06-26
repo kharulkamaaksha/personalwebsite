@@ -599,3 +599,27 @@ document.head.appendChild(style);
 // Export functions for global access
 window.scrollToSection = scrollToSection;
 window.showNotification = showNotification;
+
+// This function immediately removes the preloader
+function forceRemovePreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.style.display = 'none';
+  }
+  
+  // Also make sure the body and other content is visible
+  document.body.style.overflow = 'auto';
+  document.body.style.visibility = 'visible';
+}
+
+// Add this code at the end of your script.js file
+// This ensures the preloader is removed even if there's an error in the script
+window.addEventListener('load', function() {
+  // Try to remove preloader after 3 seconds regardless of other script execution
+  setTimeout(forceRemovePreloader, 3000);
+});
+
+// Run this immediately to fix the site if it's already stuck
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  forceRemovePreloader();
+}
