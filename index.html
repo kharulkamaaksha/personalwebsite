@@ -802,5 +802,17 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+  // Force remove preloader after 3 seconds
+  setTimeout(function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+    // Make sure other content is visible
+    document.body.style.overflow = 'auto';
+    document.body.style.visibility = 'visible';
+  }, 3000);
+</script>
 </body>
 </html>
