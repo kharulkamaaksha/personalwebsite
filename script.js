@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Main initialization function
 function initializeApp() {
     // Remove preloader after content loads
-    setTimeout(removePreloader, 2000);
+    setTimeout(removePreloader, 1000); // Reduced to 1 second for faster loading
     
-    // Initialize all components (removed cursor and matrix)
+    // Initialize all components
     initNavigation();
     initThemeToggle();
     initScrollProgress();
@@ -29,6 +29,9 @@ function initializeApp() {
     
     // Mark as loaded
     isLoaded = true;
+
+    // Force remove preloader after 2 seconds in case it's stuck
+    setTimeout(forceRemovePreloader, 2000);
 }
 
 // Preloader Management
@@ -38,8 +41,19 @@ function removePreloader() {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }, 500);
     }
+}
+
+// Force remove preloader regardless of state
+function forceRemovePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.display = 'none';
+    }
+    document.body.style.overflow = 'auto';
+    document.body.style.visibility = 'visible';
 }
 
 // Navigation Management
@@ -267,7 +281,6 @@ function initCounterAnimation() {
         observer.observe(counter);
     });
 }
-}
 
 // Skills Animation
 function initSkillsAnimation() {
@@ -441,23 +454,6 @@ function initProfessionalAnimations() {
             }
         });
     });
-    
-    // Parallax effect for hero section
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            
-            if (scrolled < heroSection.offsetHeight) {
-                const shapes = heroSection.querySelectorAll('.shape');
-                shapes.forEach((shape, index) => {
-                    const speed = (index + 1) * 0.1;
-                    shape.style.transform = `translateY(${rate * speed}px)`;
-                });
-            }
-        });
-    }
 }
 
 // Notification System
@@ -600,26 +596,7 @@ document.head.appendChild(style);
 window.scrollToSection = scrollToSection;
 window.showNotification = showNotification;
 
-// This function immediately removes the preloader
-function forceRemovePreloader() {
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    preloader.style.display = 'none';
-  }
-  
-  // Also make sure the body and other content is visible
-  document.body.style.overflow = 'auto';
-  document.body.style.visibility = 'visible';
-}
-
-// Add this code at the end of your script.js file
-// This ensures the preloader is removed even if there's an error in the script
-window.addEventListener('load', function() {
-  // Try to remove preloader after 3 seconds regardless of other script execution
-  setTimeout(forceRemovePreloader, 3000);
-});
-
-// Run this immediately to fix the site if it's already stuck
+// Force remove preloader if document is already loaded
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  forceRemovePreloader();
+    forceRemovePreloader();
 }
