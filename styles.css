@@ -2204,3 +2204,25 @@ section {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
+/* Show more of the top part of profile image */
+.profile-img {
+  object-position: center top; /* Shows the top part of the image */
+  object-fit: cover;
+}
+
+/* Adjust about image to show more of the bottom part */
+.about-img {
+  object-position: center bottom; /* Shows the bottom part of the image */
+  object-fit: cover;
+}
+
+/* Clean up unnecessary elements */
+.floating-shapes,
+.floating-elements {
+  display: none; /* Remove floating elements */
+}
+
+/* Simplify the hero section by removing some decorative elements */
+.shape {
+  display: none;
+}
